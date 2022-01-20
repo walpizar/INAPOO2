@@ -1,0 +1,6 @@
+C:\Users\INA\source\repos\MiPrimerProyectoApp\Utilidades\bin\Debug\Utilidades.dll
+C:\Users\INA\source\repos\MiPrimerProyectoApp\Utilidades\bin\Debug\Utilidades.pdb
+C:\Users\INA\source\repos\MiPrimerProyectoApp\Utilidades\obj\Debug\Utilidades.csprojAssemblyReference.cache
+C:\Users\INA\source\repos\MiPrimerProyectoApp\Utilidades\obj\Debug\Utilidades.csproj.CoreCompileInputs.cache
+C:\Users\INA\source\repos\MiPrimerProyectoApp\Utilidades\obj\Debug\Utilidades.dll
+C:\Users\INA\source\repos\MiPrimerProyectoApp\Utilidades\obj\Debug\Utilidades.pdb

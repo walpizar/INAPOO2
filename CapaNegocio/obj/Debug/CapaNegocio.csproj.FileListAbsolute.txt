@@ -1,0 +1,5 @@
+C:\Users\INA\source\repos\MiPrimerProyectoApp\CapaNegocio\bin\Debug\CapaNegocio.dll
+C:\Users\INA\source\repos\MiPrimerProyectoApp\CapaNegocio\bin\Debug\CapaNegocio.pdb
+C:\Users\INA\source\repos\MiPrimerProyectoApp\CapaNegocio\obj\Debug\CapaNegocio.csproj.CoreCompileInputs.cache
+C:\Users\INA\source\repos\MiPrimerProyectoApp\CapaNegocio\obj\Debug\CapaNegocio.dll
+C:\Users\INA\source\repos\MiPrimerProyectoApp\CapaNegocio\obj\Debug\CapaNegocio.pdb
