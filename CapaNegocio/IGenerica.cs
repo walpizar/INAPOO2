@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,10 @@ using System.Threading.Tasks;
 
 namespace CapaNegocio
 {
-    public class Class1
+    public interface IGenerica
     {
+       bool guardar(clsProductos producto);
+       bool eliminar();
+
     }
 }

@@ -3,3 +3,11 @@ C:\Users\INA\source\repos\MiPrimerProyectoApp\CapaNegocio\bin\Debug\CapaNegocio.
 C:\Users\INA\source\repos\MiPrimerProyectoApp\CapaNegocio\obj\Debug\CapaNegocio.csproj.CoreCompileInputs.cache
 C:\Users\INA\source\repos\MiPrimerProyectoApp\CapaNegocio\obj\Debug\CapaNegocio.dll
 C:\Users\INA\source\repos\MiPrimerProyectoApp\CapaNegocio\obj\Debug\CapaNegocio.pdb
+C:\Users\INA\source\repos\MiPrimerProyectoApp\CapaNegocio\bin\Debug\CapaDatos.dll
+C:\Users\INA\source\repos\MiPrimerProyectoApp\CapaNegocio\bin\Debug\Entidades.dll
+C:\Users\INA\source\repos\MiPrimerProyectoApp\CapaNegocio\bin\Debug\Utilidades.dll
+C:\Users\INA\source\repos\MiPrimerProyectoApp\CapaNegocio\bin\Debug\CapaDatos.pdb
+C:\Users\INA\source\repos\MiPrimerProyectoApp\CapaNegocio\bin\Debug\Entidades.pdb
+C:\Users\INA\source\repos\MiPrimerProyectoApp\CapaNegocio\bin\Debug\Utilidades.pdb
+C:\Users\INA\source\repos\MiPrimerProyectoApp\CapaNegocio\obj\Debug\CapaNegocio.csprojAssemblyReference.cache
+C:\Users\INA\source\repos\MiPrimerProyectoApp\CapaNegocio\obj\Debug\CapaNegocio.csproj.CopyComplete

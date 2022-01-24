@@ -34,7 +34,10 @@ namespace Entidades
         {
             return "Estoy estudiando";
         }
-
+        public string preguntar(string laPregunta)
+        {
+            return "Estoy preguntando";
+        }
 
         public string preguntar()
         {

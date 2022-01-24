@@ -70,6 +70,12 @@
     <Compile Include="frmProductos.Designer.cs">
       <DependentUpon>frmProductos.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmConsultaProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsultaProductos.Designer.cs">
+      <DependentUpon>frmConsultaProductos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmEstudiantes.resx">
@@ -83,6 +89,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmProductos.resx">
       <DependentUpon>frmProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConsultaProductos.resx">
+      <DependentUpon>frmConsultaProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -107,6 +116,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CapaNegocio\CapaNegocio.csproj">
+      <Project>{c65271a6-cdb0-468b-80ba-0a9c0236702a}</Project>
+      <Name>CapaNegocio</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Entidades\Entidades.csproj">
       <Project>{EA33EEAE-6130-4DB1-8E02-1E6EAA8EE020}</Project>
       <Name>Entidades</Name>

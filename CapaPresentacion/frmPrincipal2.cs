@@ -47,14 +47,14 @@ namespace CapaPresentacion
 
         private void btnProductos_Click(object sender, EventArgs e)
         {
-            frmProductos frmProductos = new frmProductos();
-            frmProductos.Show();
+            frmConsultaProductos frmProductos = new frmConsultaProductos();
+            frmProductos.ShowDialog();
         }
 
         private void btnEstudiante_Click(object sender, EventArgs e)
         {
             frmEstudiantes formEstudiante = new frmEstudiantes();
-            formEstudiante.Show();
+            formEstudiante.ShowDialog();
         }
     }
 }

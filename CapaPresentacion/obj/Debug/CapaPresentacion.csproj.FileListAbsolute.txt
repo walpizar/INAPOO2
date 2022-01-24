@@ -16,3 +16,8 @@ C:\Users\INA\source\repos\MiPrimerProyectoApp\CapaPresentacion\obj\Debug\CapaPre
 C:\Users\INA\source\repos\MiPrimerProyectoApp\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.CopyComplete
 C:\Users\INA\source\repos\MiPrimerProyectoApp\CapaPresentacion\bin\Debug\Utilidades.dll
 C:\Users\INA\source\repos\MiPrimerProyectoApp\CapaPresentacion\bin\Debug\Utilidades.pdb
+C:\Users\INA\source\repos\MiPrimerProyectoApp\CapaPresentacion\obj\Debug\CapaPresentacion.frmConsultaProductos.resources
+C:\Users\INA\source\repos\MiPrimerProyectoApp\CapaPresentacion\bin\Debug\CapaNegocio.dll
+C:\Users\INA\source\repos\MiPrimerProyectoApp\CapaPresentacion\bin\Debug\CapaNegocio.pdb
+C:\Users\INA\source\repos\MiPrimerProyectoApp\CapaPresentacion\bin\Debug\CapaDatos.dll
+C:\Users\INA\source\repos\MiPrimerProyectoApp\CapaPresentacion\bin\Debug\CapaDatos.pdb
