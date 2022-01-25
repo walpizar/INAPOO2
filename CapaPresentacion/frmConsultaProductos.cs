@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,9 +16,14 @@ namespace CapaPresentacion
 
         //global
         int valor = 5;
-        public frmConsultaProductos()
+
+        public IServiceProvider serviceProvider { get; set; }
+
+        public frmConsultaProductos(IServiceProvider _serviceProvider)
         {
             InitializeComponent();
+            this.serviceProvider = _serviceProvider;
+            
         }
 
         private void frmProductos_Load(object sender, EventArgs e)
@@ -83,8 +89,12 @@ namespace CapaPresentacion
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            frmProductos producto = new frmProductos();
-            producto.ShowDialog();
+            //frmProductos frmProductos = new frmProductos();
+            //frmProductos.ShowDialog();
+
+            var form = serviceProvider.GetRequiredService<frmProductos>();
+            form.ShowDialog(this);
+
         }
     }
 }

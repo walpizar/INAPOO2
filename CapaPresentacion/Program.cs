@@ -1,8 +1,13 @@
-﻿using System;
+﻿using CapaDatos;
+using CapaNegocio;
+using Entidades;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Utilidades.Interfaces;
 
 namespace CapaPresentacion
 {
@@ -16,7 +21,50 @@ namespace CapaPresentacion
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmPrincipal2());
+
+            var services = new ServiceCollection();
+            ConfigureServices(services);
+            using (var serviceProvider = services.BuildServiceProvider())
+            {
+                var form1 = serviceProvider.GetRequiredService<frmPrincipal2>();
+                Application.Run(form1);
+
+
+            }
+
+              
+
+               
+        }
+
+        private static void ConfigureServices(ServiceCollection services)
+        {
+
+            //AddTransient: Crea y elimina dinamicamente el objeto de la memoria mientras se utiliza
+
+            //addScoped: mantiene los objetos en memoria miestras el sistema corra. Reutiliza la memoria
+
+            //addSingleton: funcionamiento trandicional, por cada objeto crea memoria, no es dinamica.
+
+            //formularios
+            services.AddTransient<frmPrincipal2>();
+            services.AddTransient<frmConsultaProductos>();
+            services.AddTransient<frmProductos>();
+            services.AddTransient<frmEstudiantes>();
+
+            //objetos de capa negocio
+            services.AddScoped<IGenericaNegocio<clsProductos>, BProductos>();
+            // services.AddScoped<IGenerica<clsProveedor>, BProveedores>();
+
+
+            //objetos de capa de datos
+            services.AddScoped<IGenericaDatos<clsProductos>, DProductos>();
+           // services.AddScoped<IGenerica<clsProveedor>, DProveedores>();
+
+         
+
+
+
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CapaNegocio;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,15 @@ namespace CapaPresentacion
 {
     public partial class frmPrincipal2 : Form
     {
-        public frmPrincipal2()
+
+        private IServiceProvider serviceProvider { get; set; }
+
+
+        public frmPrincipal2(IServiceProvider _serviceProvider)
         {
             InitializeComponent();
+           this.serviceProvider = _serviceProvider;
+         
         }
 
         private void pbxCerrar_Click(object sender, EventArgs e)
@@ -47,14 +55,17 @@ namespace CapaPresentacion
 
         private void btnProductos_Click(object sender, EventArgs e)
         {
-            frmConsultaProductos frmProductos = new frmConsultaProductos();
-            frmProductos.ShowDialog();
+            //frmConsultaProductos frmProductos = new frmConsultaProductos();
+            //frmProductos.ShowDialog();
+            var form = serviceProvider.GetRequiredService<frmConsultaProductos>();
+            form.ShowDialog(this);
+
         }
 
         private void btnEstudiante_Click(object sender, EventArgs e)
         {
-            frmEstudiantes formEstudiante = new frmEstudiantes();
-            formEstudiante.ShowDialog();
+            var form = serviceProvider.GetRequiredService<frmEstudiantes>();
+            form.ShowDialog(this);
         }
     }
 }

@@ -11,14 +11,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Utilidades;
+using Utilidades.Interfaces;
 
 namespace CapaPresentacion
 {
     public partial class frmProductos : Form
     {
-        public frmProductos()
+
+        private IGenericaNegocio<clsProductos> insBProductos { get; set; }
+
+        public frmProductos(IGenericaNegocio<clsProductos> _insBProductos)
         {
             InitializeComponent();
+            this.insBProductos = _insBProductos;
+         
         }
 
         private void pbxCerrar_Click(object sender, EventArgs e)
@@ -63,10 +69,11 @@ namespace CapaPresentacion
                 producto.estado = true;
 
 
-                BProductos productoIns = new BProductos();
-
-                bool result= productoIns.guardar(producto);
-                if (result)
+                //creo instancia de obtjeto de NEGOCIO- pasar los datos a negocio
+                //BProductos ProductoIns = new BProductos();
+               
+                var result= insBProductos.guardar(producto);
+                if (result!=null)
                 {
                     MessageBox.Show("Se guardo correctamente");
                     this.Close();
