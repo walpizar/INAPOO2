@@ -17,20 +17,34 @@ namespace CapaNegocio
             this.insDProducto = _insBProducto;
         }
 
-        public bool eliminar(string id)
+        public bool eliminar(string codigo)
         {
+
+            //reglas de negocio
+
             throw new NotImplementedException();
         }
 
         public clsProductos guardar(clsProductos entidad)
         {
             //reglas de negocio
+            //1-validar que no exista atravez del codigo
+            var result = obtenerPorId(entidad.codigo);
 
+            //verifico si encontro algo con el codigo enviado
+            if (result == null)
+            {
+                //creo la instancia para pasar los datos a CAPA DE DATOS
+                //DProductos proIns = new DProductos();
+                return insDProducto.guardar(entidad);
 
-
-            //creo la instancia para pasar los datos a CAPA DE DATOS
-            //DProductos proIns = new DProductos();
-            return insDProducto.guardar(entidad);
+            }
+            else
+            {
+                return null;
+            }
+      
+         
 
 
 
@@ -38,17 +52,18 @@ namespace CapaNegocio
 
         public clsProductos modificar(clsProductos entidad)
         {
-            throw new NotImplementedException();
+            //regla de negocio
+            return insDProducto.modificar(entidad);
         }
 
-        public clsProductos obtenerPorId(string id)
+        public clsProductos obtenerPorId(string codigo)
         {
-            throw new NotImplementedException();
+            return insDProducto.obtenerPorId(codigo);
         }
 
         public IEnumerable<clsProductos> obtenerTodos()
         {
-            throw new NotImplementedException();
+            return insDProducto.obtenerTodos();
         }
 
         public void calcular()

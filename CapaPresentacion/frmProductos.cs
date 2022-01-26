@@ -19,6 +19,8 @@ namespace CapaPresentacion
     {
 
         private IGenericaNegocio<clsProductos> insBProductos { get; set; }
+        public clsProductos producto { get; set; }
+
 
         public frmProductos(IGenericaNegocio<clsProductos> _insBProductos)
         {
@@ -34,9 +36,38 @@ namespace CapaPresentacion
 
         private void frmProductos_Load(object sender, EventArgs e)
         {
-            lblTitulo.Text = "Crear Producto Nuevo";
-            cboCategoria.SelectedIndex = 0;
-            cboImpuesto.SelectedIndex = 0;
+
+            //funcion de producto nuevo
+            if (producto == null)
+            {
+
+                lblTitulo.Text = "Crear Producto Nuevo";
+                cboCategoria.SelectedIndex = 0;
+                cboImpuesto.SelectedIndex = 0;
+                btnEliminar.Enabled = false;
+            }
+            else
+            {//producto existente para modificar o eliminar
+                lblTitulo.Text = "Modificar/Eliminar Producto";
+                btnGuardar.Text = "Modificar";
+                txtCodigo.ReadOnly = true;
+                btnEliminar.Enabled = true;
+                cargarForm();
+            }           
+        }
+
+        private void cargarForm()
+        {
+            txtID.Text = producto.id.ToString();
+            txtCodigo.Text = producto.codigo;
+            txtNombre.Text = producto.nombre;
+            txtPrecioCosto.Text = producto.precioCosto.ToString();
+            txtUtilidad.Text = producto.utilidad.ToString();
+            cboImpuesto.Text = producto.impuesto.ToString();
+            txtPrecioVenta.Text = producto.precioVenta.ToString();
+            txtProveedor.Text = producto.proveedor;
+            cboCategoria.Text = producto.categoria;
+
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
@@ -56,23 +87,46 @@ namespace CapaPresentacion
             {
                 //MANDAR A GUARDAR
 
-                //como el producto es nuevo no existe, debo de crear una instancia
-                clsProductos producto = new clsProductos();
-                producto.codigo = txtCodigo.Text;
-                producto.nombre = txtNombre.Text;
-                producto.precioCosto = decimal.Parse(txtPrecioCosto.Text);
-                producto.utilidad = decimal.Parse(txtUtilidad.Text);
-                producto.impuesto = int.Parse(cboImpuesto.Text);
-                producto.precioVenta = decimal.Parse(txtPrecioVenta.Text);
-                producto.categoria = cboCategoria.Text;
-                producto.proveedor = txtProveedor.Text;
-                producto.estado = true;
+                clsProductos product;
+
+                if (producto == null)
+                {
+                    product = new clsProductos();
+
+                }
+                else
+                {
+                    product = producto;
+
+                }
+
+
+                product.codigo = txtCodigo.Text;
+                product.nombre = txtNombre.Text;
+                product.precioCosto = decimal.Parse(txtPrecioCosto.Text);
+                product.utilidad = decimal.Parse(txtUtilidad.Text);
+                product.impuesto = int.Parse(cboImpuesto.Text);
+                product.precioVenta = decimal.Parse(txtPrecioVenta.Text);
+                product.categoria = cboCategoria.Text;
+                product.proveedor = txtProveedor.Text;
+                product.estado = true;
 
 
                 //creo instancia de obtjeto de NEGOCIO- pasar los datos a negocio
                 //BProductos ProductoIns = new BProductos();
+
+                var result = new clsProductos();
+                if (producto == null)
+                {
+                    result = insBProductos.guardar(product);
+                }
+                else
+                {
+                    result = insBProductos.modificar(product);
+                }
                
-                var result= insBProductos.guardar(producto);
+
+
                 if (result!=null)
                 {
                     MessageBox.Show("Se guardo correctamente");

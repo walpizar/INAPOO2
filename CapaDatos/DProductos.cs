@@ -10,30 +10,48 @@ namespace CapaDatos
 {
     public class DProductos : IGenericaDatos<clsProductos>
     {
-        public bool eliminar(string id)
+        //lista para guardar en momoria los productos
+        public List<clsProductos> listaProducto { get; set; }
+
+
+        public DProductos()
+        {
+            //cuando la capa de datos se instancie, tambien me instancie la lista vacia nueva.
+           listaProducto = new List<clsProductos>();
+        }
+
+
+        public bool eliminar(string codigo)
         {
             throw new NotImplementedException();
         }
 
         public clsProductos guardar(clsProductos entidad)
         {
-            //hace la persistencia
-            return null;
+            listaProducto.Add(entidad);
+            return entidad;
         }
 
         public clsProductos modificar(clsProductos entidad)
         {
-            throw new NotImplementedException();
+            var productAntiguo = listaProducto.Where(x=>x.codigo==entidad.codigo).SingleOrDefault();
+            listaProducto.Remove(productAntiguo);
+            listaProducto.Add(entidad);
+            return entidad;
+
+
         }
 
-        public clsProductos obtenerPorId(string id)
+        public clsProductos obtenerPorId(string _codigo)
         {
-            throw new NotImplementedException();
+            //lambda
+           return listaProducto.Where(x => x.codigo == _codigo).SingleOrDefault();
+
         }
 
         public IEnumerable<clsProductos> obtenerTodos()
         {
-            throw new NotImplementedException();
+            return listaProducto.Where(x=>x.estado=true).ToList();
         }
     }
 }

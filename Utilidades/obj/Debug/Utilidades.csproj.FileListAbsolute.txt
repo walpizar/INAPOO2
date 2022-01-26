@@ -4,3 +4,9 @@ C:\Users\INA\source\repos\MiPrimerProyectoApp\Utilidades\obj\Debug\Utilidades.cs
 C:\Users\INA\source\repos\MiPrimerProyectoApp\Utilidades\obj\Debug\Utilidades.csproj.CoreCompileInputs.cache
 C:\Users\INA\source\repos\MiPrimerProyectoApp\Utilidades\obj\Debug\Utilidades.dll
 C:\Users\INA\source\repos\MiPrimerProyectoApp\Utilidades\obj\Debug\Utilidades.pdb
+C:\Users\walpi\Desktop\POO\POOINA\Utilidades\bin\Debug\Utilidades.dll
+C:\Users\walpi\Desktop\POO\POOINA\Utilidades\bin\Debug\Utilidades.pdb
+C:\Users\walpi\Desktop\POO\POOINA\Utilidades\obj\Debug\Utilidades.csprojAssemblyReference.cache
+C:\Users\walpi\Desktop\POO\POOINA\Utilidades\obj\Debug\Utilidades.csproj.CoreCompileInputs.cache
+C:\Users\walpi\Desktop\POO\POOINA\Utilidades\obj\Debug\Utilidades.dll
+C:\Users\walpi\Desktop\POO\POOINA\Utilidades\obj\Debug\Utilidades.pdb

@@ -106,6 +106,7 @@
             this.lstvLista.TabIndex = 1;
             this.lstvLista.UseCompatibleStateImageBehavior = false;
             this.lstvLista.View = System.Windows.Forms.View.Details;
+            this.lstvLista.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lstvLista_MouseDoubleClick);
             // 
             // colId
             // 
@@ -152,6 +153,7 @@
             this.txtBusqueda.Name = "txtBusqueda";
             this.txtBusqueda.Size = new System.Drawing.Size(536, 26);
             this.txtBusqueda.TabIndex = 3;
+            this.txtBusqueda.TextChanged += new System.EventHandler(this.txtBusqueda_TextChanged);
             // 
             // lblBusquesa
             // 
@@ -162,7 +164,7 @@
             this.lblBusquesa.TabIndex = 4;
             this.lblBusquesa.Text = "Búsqueda:";
             // 
-            // frmProductos
+            // frmConsultaProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -174,7 +176,7 @@
             this.Controls.Add(this.lstvLista);
             this.Controls.Add(this.pnlTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmProductos";
+            this.Name = "frmConsultaProductos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mantenimiento: Productos";
             this.Load += new System.EventHandler(this.frmProductos_Load);

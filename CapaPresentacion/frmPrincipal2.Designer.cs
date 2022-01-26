@@ -37,9 +37,9 @@
             this.pnlEquinaDerecha = new System.Windows.Forms.Panel();
             this.pbxCerrar = new System.Windows.Forms.PictureBox();
             this.pnlMenu = new System.Windows.Forms.Panel();
+            this.btnEstudiante = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
             this.btnProductos = new System.Windows.Forms.Button();
-            this.btnEstudiante = new System.Windows.Forms.Button();
             this.pnlPrincipal.SuspendLayout();
             this.pnlSuperior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxMenu)).BeginInit();
@@ -61,7 +61,7 @@
             // 
             // pnlContenedor
             // 
-            this.pnlContenedor.BackColor = System.Drawing.Color.White;
+            this.pnlContenedor.BackColor = System.Drawing.Color.Silver;
             this.pnlContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContenedor.Location = new System.Drawing.Point(200, 51);
             this.pnlContenedor.Name = "pnlContenedor";
@@ -133,6 +133,23 @@
             this.pnlMenu.Size = new System.Drawing.Size(200, 640);
             this.pnlMenu.TabIndex = 1;
             // 
+            // btnEstudiante
+            // 
+            this.btnEstudiante.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnEstudiante.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEstudiante.BackgroundImage")));
+            this.btnEstudiante.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnEstudiante.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEstudiante.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.btnEstudiante.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEstudiante.Location = new System.Drawing.Point(27, 113);
+            this.btnEstudiante.Name = "btnEstudiante";
+            this.btnEstudiante.Size = new System.Drawing.Size(146, 41);
+            this.btnEstudiante.TabIndex = 2;
+            this.btnEstudiante.Text = "Estudiante";
+            this.btnEstudiante.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.btnEstudiante.UseVisualStyleBackColor = false;
+            this.btnEstudiante.Click += new System.EventHandler(this.btnEstudiante_Click);
+            // 
             // btnClientes
             // 
             this.btnClientes.BackColor = System.Drawing.Color.LightSkyBlue;
@@ -165,23 +182,6 @@
             this.btnProductos.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.btnProductos.UseVisualStyleBackColor = false;
             this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
-            // 
-            // btnEstudiante
-            // 
-            this.btnEstudiante.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnEstudiante.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnEstudiante.BackgroundImage")));
-            this.btnEstudiante.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnEstudiante.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEstudiante.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.btnEstudiante.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEstudiante.Location = new System.Drawing.Point(27, 113);
-            this.btnEstudiante.Name = "btnEstudiante";
-            this.btnEstudiante.Size = new System.Drawing.Size(146, 41);
-            this.btnEstudiante.TabIndex = 2;
-            this.btnEstudiante.Text = "Estudiante";
-            this.btnEstudiante.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.btnEstudiante.UseVisualStyleBackColor = false;
-            this.btnEstudiante.Click += new System.EventHandler(this.btnEstudiante_Click);
             // 
             // frmPrincipal2
             // 

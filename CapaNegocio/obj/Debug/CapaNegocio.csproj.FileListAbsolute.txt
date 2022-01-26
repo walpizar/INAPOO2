@@ -11,3 +11,16 @@ C:\Users\INA\source\repos\MiPrimerProyectoApp\CapaNegocio\bin\Debug\Entidades.pd
 C:\Users\INA\source\repos\MiPrimerProyectoApp\CapaNegocio\bin\Debug\Utilidades.pdb
 C:\Users\INA\source\repos\MiPrimerProyectoApp\CapaNegocio\obj\Debug\CapaNegocio.csprojAssemblyReference.cache
 C:\Users\INA\source\repos\MiPrimerProyectoApp\CapaNegocio\obj\Debug\CapaNegocio.csproj.CopyComplete
+C:\Users\walpi\Desktop\POO\POOINA\CapaNegocio\bin\Debug\CapaNegocio.dll
+C:\Users\walpi\Desktop\POO\POOINA\CapaNegocio\bin\Debug\CapaNegocio.pdb
+C:\Users\walpi\Desktop\POO\POOINA\CapaNegocio\bin\Debug\CapaDatos.dll
+C:\Users\walpi\Desktop\POO\POOINA\CapaNegocio\bin\Debug\Entidades.dll
+C:\Users\walpi\Desktop\POO\POOINA\CapaNegocio\bin\Debug\Utilidades.dll
+C:\Users\walpi\Desktop\POO\POOINA\CapaNegocio\bin\Debug\CapaDatos.pdb
+C:\Users\walpi\Desktop\POO\POOINA\CapaNegocio\bin\Debug\Entidades.pdb
+C:\Users\walpi\Desktop\POO\POOINA\CapaNegocio\bin\Debug\Utilidades.pdb
+C:\Users\walpi\Desktop\POO\POOINA\CapaNegocio\obj\Debug\CapaNegocio.csprojAssemblyReference.cache
+C:\Users\walpi\Desktop\POO\POOINA\CapaNegocio\obj\Debug\CapaNegocio.csproj.CoreCompileInputs.cache
+C:\Users\walpi\Desktop\POO\POOINA\CapaNegocio\obj\Debug\CapaNegocio.csproj.CopyComplete
+C:\Users\walpi\Desktop\POO\POOINA\CapaNegocio\obj\Debug\CapaNegocio.dll
+C:\Users\walpi\Desktop\POO\POOINA\CapaNegocio\obj\Debug\CapaNegocio.pdb

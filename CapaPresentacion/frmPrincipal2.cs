@@ -29,11 +29,13 @@ namespace CapaPresentacion
         {
             Application.Exit();
             //this.Close();
+
+            
         }
 
         private void pnlContenedor_Paint(object sender, PaintEventArgs e)
         {
-
+            
         }
 
         private void pbxMenu_Click(object sender, EventArgs e)
@@ -57,6 +59,8 @@ namespace CapaPresentacion
         {
             //frmConsultaProductos frmProductos = new frmConsultaProductos();
             //frmProductos.ShowDialog();
+
+
             var form = serviceProvider.GetRequiredService<frmConsultaProductos>();
             form.ShowDialog(this);
 

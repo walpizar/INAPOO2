@@ -4,3 +4,9 @@ C:\Users\INA\source\repos\MiPrimerProyectoApp\Entidades\obj\Debug\Entidades.cspr
 C:\Users\INA\source\repos\MiPrimerProyectoApp\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
 C:\Users\INA\source\repos\MiPrimerProyectoApp\Entidades\obj\Debug\Entidades.dll
 C:\Users\INA\source\repos\MiPrimerProyectoApp\Entidades\obj\Debug\Entidades.pdb
+C:\Users\walpi\Desktop\POO\POOINA\Entidades\bin\Debug\Entidades.dll
+C:\Users\walpi\Desktop\POO\POOINA\Entidades\bin\Debug\Entidades.pdb
+C:\Users\walpi\Desktop\POO\POOINA\Entidades\obj\Debug\Entidades.csprojAssemblyReference.cache
+C:\Users\walpi\Desktop\POO\POOINA\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
+C:\Users\walpi\Desktop\POO\POOINA\Entidades\obj\Debug\Entidades.dll
+C:\Users\walpi\Desktop\POO\POOINA\Entidades\obj\Debug\Entidades.pdb
