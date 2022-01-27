@@ -21,8 +21,8 @@ namespace CapaNegocio
         {
 
             //reglas de negocio
-
-            throw new NotImplementedException();
+            return insDProducto.eliminar(codigo);
+           
         }
 
         public clsProductos guardar(clsProductos entidad)

@@ -23,7 +23,28 @@ namespace CapaDatos
 
         public bool eliminar(string codigo)
         {
-            throw new NotImplementedException();
+
+            // borrado fisico
+            //var productAntiguo = listaProducto.Where(x => x.codigo == codigo).SingleOrDefault();
+            //listaProducto.Remove(productAntiguo);
+
+
+            //otra manera
+
+            //var productAntiguo = listaProducto.Where(x => x.codigo == codigo).SingleOrDefault();
+            //listaProducto.Remove(productAntiguo);
+
+            //productAntiguo.estado = false;
+            //listaProducto.Add(productAntiguo);
+
+
+
+            //borrado logico
+            listaProducto.Where(x => x.codigo == codigo).SingleOrDefault().estado = false;
+
+
+            return true;
+
         }
 
         public clsProductos guardar(clsProductos entidad)
@@ -51,7 +72,7 @@ namespace CapaDatos
 
         public IEnumerable<clsProductos> obtenerTodos()
         {
-            return listaProducto.Where(x=>x.estado=true).ToList();
+            return listaProducto.Where(x=>x.estado==true).ToList();
         }
     }
 }
