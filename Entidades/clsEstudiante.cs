@@ -9,6 +9,11 @@ namespace Entidades
     public class clsEstudiante: clsPersona
     {
 
+
+        //nuevas propiedades
+        public string grupo { get; set; }
+        public string horario { get; set; }
+
         public int carnet { get; set; }
         public bool estado { get; set; }
 
