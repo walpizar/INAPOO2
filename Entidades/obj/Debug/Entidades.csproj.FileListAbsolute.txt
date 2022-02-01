@@ -10,3 +10,8 @@ C:\Users\walpi\Desktop\POO\POOINA\Entidades\obj\Debug\Entidades.csprojAssemblyRe
 C:\Users\walpi\Desktop\POO\POOINA\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
 C:\Users\walpi\Desktop\POO\POOINA\Entidades\obj\Debug\Entidades.dll
 C:\Users\walpi\Desktop\POO\POOINA\Entidades\obj\Debug\Entidades.pdb
+C:\Users\walpi\Desktop\POO\POOINA\Entidades\bin\Debug\EntityFramework.dll
+C:\Users\walpi\Desktop\POO\POOINA\Entidades\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\walpi\Desktop\POO\POOINA\Entidades\bin\Debug\EntityFramework.xml
+C:\Users\walpi\Desktop\POO\POOINA\Entidades\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\walpi\Desktop\POO\POOINA\Entidades\obj\Debug\Entidades.csproj.CopyComplete

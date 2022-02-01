@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbPOOModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbPersona">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="identificacion" Type="nchar" MaxLength="30" Nullable="false" />
+    <Property Name="tipoId" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="nombre" Type="nchar" MaxLength="30" Nullable="false" />
+    <Property Name="apellido1" Type="nchar" MaxLength="30" />
+    <Property Name="apellido2" Type="nchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="tbProductos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="nchar" MaxLength="30" Nullable="false" />
+    <Property Name="nombre" Type="nchar" MaxLength="30" Nullable="false" />
+    <Property Name="precioCosto" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="utilidad" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="impuesto" Type="int" Nullable="false" />
+    <Property Name="precioVenta" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="categoria" Type="nchar" MaxLength="500" Nullable="false" />
+    <Property Name="proveedor" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="estado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="dbPOOModelStoreContainer">
+    <EntitySet Name="tbPersona" EntityType="Self.tbPersona" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbProductos" EntityType="Self.tbProductos" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

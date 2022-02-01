@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="clsMath.cs" />
     <Compile Include="clsNumber.cs" />
+    <Compile Include="Exceptions\EntityExistDisableException.cs" />
+    <Compile Include="Exceptions\EntityExistException.cs" />
     <Compile Include="Interfaces\IGenericaDatos.cs" />
     <Compile Include="Interfaces\IGenericaNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

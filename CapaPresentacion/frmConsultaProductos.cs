@@ -20,11 +20,11 @@ namespace CapaPresentacion
         int valor = 5;
 
 
-        public IEnumerable<clsProductos> listaProductos { get; set; }
+        public IEnumerable<tbProductos> listaProductos { get; set; }
         public IServiceProvider ServiceProvider { get; }
-        public IGenericaNegocio<clsProductos> InsBProducto { get; }
+        public IGenericaNegocio<tbProductos> InsBProducto { get; }
 
-        public frmConsultaProductos(IServiceProvider _serviceProvider, IGenericaNegocio<clsProductos> _insBProducto)
+        public frmConsultaProductos(IServiceProvider _serviceProvider, IGenericaNegocio<tbProductos> _insBProducto)
         {
             InitializeComponent();
             ServiceProvider = _serviceProvider;
@@ -33,10 +33,19 @@ namespace CapaPresentacion
 
         private void frmProductos_Load(object sender, EventArgs e)
         {
-            lblTitulo.Text = "Mantenimiento: Productos";
-            cargarDatos();
-            valor = 88;
+            try
+            {
+                lblTitulo.Text = "Mantenimiento: Productos";
+                cargarDatos();
+                valor = 88;
 
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Error al cargar la lista");
+            }
+      
         }
 
 
@@ -67,7 +76,7 @@ namespace CapaPresentacion
           
         }
 
-        private void cargarLista(IEnumerable<clsProductos> lista)
+        private void cargarLista(IEnumerable<tbProductos> lista)
         {
 
             lstvLista.Items.Clear();
@@ -77,10 +86,10 @@ namespace CapaPresentacion
 
                 ListViewItem linea = new ListViewItem();
                 linea.Text = prod.id.ToString();
-                linea.SubItems.Add(prod.codigo);
-                linea.SubItems.Add(prod.nombre);
-                linea.SubItems.Add(prod.precioCosto.ToString());
-                linea.SubItems.Add(prod.precioVenta.ToString());
+                linea.SubItems.Add(prod.codigo.Trim());
+                linea.SubItems.Add(prod.nombre.Trim());
+                linea.SubItems.Add(prod.precioCosto.ToString().Trim());
+                linea.SubItems.Add(prod.precioVenta.ToString().Trim());
 
                 lstvLista.Items.Add(linea);
             }
@@ -144,7 +153,7 @@ namespace CapaPresentacion
         {
 
             var codigo = lstvLista.SelectedItems[0].SubItems[1].Text;
-            var prod = listaProductos.Where(x => x.codigo == codigo).SingleOrDefault();
+            var prod = listaProductos.Where(x => x.codigo.Trim() == codigo.Trim()).SingleOrDefault();
 
             //llamo al formulario de prodcuto y le paso el producto que se le dio doble clic
 

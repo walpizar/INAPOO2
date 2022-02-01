@@ -5,65 +5,122 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Utilidades.Exceptions;
 using Utilidades.Interfaces;
 
 namespace CapaNegocio
 {
-    public class BProductos : IGenericaNegocio<clsProductos>
+    public class BProductos : IGenericaNegocio<tbProductos>
     {
-        public IGenericaDatos<clsProductos> insDProducto { get; set; }
-        public BProductos(IGenericaDatos<clsProductos> _insBProducto)
+        public IGenericaDatos<tbProductos> insDProducto { get; set; }
+        public BProductos(IGenericaDatos<tbProductos> _insBProducto)
         {
             this.insDProducto = _insBProducto;
         }
 
         public bool eliminar(string codigo)
         {
+            try
+            {
+                //reglas de negocio
+                return insDProducto.eliminar(codigo);
+            }
+            catch (InvalidOperationException ex)
+            {
 
-            //reglas de negocio
-            return insDProducto.eliminar(codigo);
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+
+
+            }
+          
            
         }
 
-        public clsProductos guardar(clsProductos entidad)
+        public tbProductos guardar(tbProductos entidad)
         {
-            //reglas de negocio
-            //1-validar que no exista atravez del codigo
-            var result = obtenerPorId(entidad.codigo);
-
-            //verifico si encontro algo con el codigo enviado
-            if (result == null)
+            try
             {
-                //creo la instancia para pasar los datos a CAPA DE DATOS
-                //DProductos proIns = new DProductos();
-                return insDProducto.guardar(entidad);
+                //reglas de negocio
+                //1-validar que no exista atravez del codigo
+                var result = obtenerPorId(entidad.codigo);
+
+                //verifico si encontro algo con el codigo enviado
+                if (result == null)
+                {
+                    //creo la instancia para pasar los datos a CAPA DE DATOS
+                    //DProductos proIns = new DProductos();
+                    return insDProducto.guardar(entidad);
+
+                }
+                else
+                {
+                    if (result.estado) {
+                        
+                        throw new EntityExistException("Producto");
+
+                    }
+                    else
+                    {
+                        throw new EntityExistDisableException("Producto");
+                    }
+                    
+
+
+                }
 
             }
-            else
+            catch (Exception ex)
             {
-                return null;
+                
+                throw ex;
             }
-      
+           
          
 
 
 
         }
 
-        public clsProductos modificar(clsProductos entidad)
+        public tbProductos modificar(tbProductos entidad)
         {
+            try
+            {
+                return insDProducto.modificar(entidad);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
             //regla de negocio
-            return insDProducto.modificar(entidad);
+           
         }
 
-        public clsProductos obtenerPorId(string codigo)
+        public tbProductos obtenerPorId(string codigo)
         {
             return insDProducto.obtenerPorId(codigo);
         }
 
-        public IEnumerable<clsProductos> obtenerTodos()
+        public IEnumerable<tbProductos> obtenerTodos()
         {
-            return insDProducto.obtenerTodos();
+            try
+            {
+                return insDProducto.obtenerTodos();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        
         }
 
         public void calcular()

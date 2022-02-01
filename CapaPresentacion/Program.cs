@@ -46,6 +46,10 @@ namespace CapaPresentacion
 
             //addSingleton: funcionamiento trandicional, por cada objeto crea memoria, no es dinamica.
 
+
+            //base datos
+            services.AddTransient<Entities>();
+
             //formularios
             services.AddTransient<frmPrincipal2>();
             services.AddTransient<frmConsultaProductos>();
@@ -53,12 +57,12 @@ namespace CapaPresentacion
             services.AddTransient<frmEstudiantes>();
 
             //objetos de capa negocio
-            services.AddScoped<IGenericaNegocio<clsProductos>, BProductos>();
+            services.AddScoped<IGenericaNegocio<tbProductos>, BProductos>();
             // services.AddScoped<IGenerica<clsProveedor>, BProveedores>();
 
 
             //objetos de capa de datos
-            services.AddScoped<IGenericaDatos<clsProductos>, DProductos>();
+            services.AddScoped<IGenericaDatos<tbProductos>, DProductos>();
            // services.AddScoped<IGenerica<clsProveedor>, DProveedores>();
 
          

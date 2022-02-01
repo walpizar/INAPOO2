@@ -16,8 +16,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidades", "Entidades\Enti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilidades", "Utilidades\Utilidades.csproj", "{75F1F292-4E11-4C75-A36C-A0AA7296F537}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EjemploSubirGIT", "..\..\xx\EjemploSubirGIT\EjemploSubirGIT.csproj", "{C3117D71-092A-42C9-AE68-C14C7BF774EB}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,10 +42,6 @@ Global
 		{75F1F292-4E11-4C75-A36C-A0AA7296F537}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75F1F292-4E11-4C75-A36C-A0AA7296F537}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75F1F292-4E11-4C75-A36C-A0AA7296F537}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C3117D71-092A-42C9-AE68-C14C7BF774EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C3117D71-092A-42C9-AE68-C14C7BF774EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C3117D71-092A-42C9-AE68-C14C7BF774EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C3117D71-092A-42C9-AE68-C14C7BF774EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -30,6 +30,7 @@ namespace Entidades
         {
             this.carnet = _carnet;
             this.estado = _estado;
+            //seatearla
            
 
         }

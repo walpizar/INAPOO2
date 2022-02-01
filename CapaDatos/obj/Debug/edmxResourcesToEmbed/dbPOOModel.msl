@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbPOOModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="tbPersona">
+      <EntityTypeMapping TypeName="dbPOOModel.tbPersona">
+        <MappingFragment StoreEntitySet="tbPersona">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="identificacion" ColumnName="identificacion" />
+          <ScalarProperty Name="tipoId" ColumnName="tipoId" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido1" ColumnName="apellido1" />
+          <ScalarProperty Name="apellido2" ColumnName="apellido2" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbProductos">
+      <EntityTypeMapping TypeName="dbPOOModel.tbProductos">
+        <MappingFragment StoreEntitySet="tbProductos">
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="proveedor" ColumnName="proveedor" />
+          <ScalarProperty Name="categoria" ColumnName="categoria" />
+          <ScalarProperty Name="precioVenta" ColumnName="precioVenta" />
+          <ScalarProperty Name="impuesto" ColumnName="impuesto" />
+          <ScalarProperty Name="utilidad" ColumnName="utilidad" />
+          <ScalarProperty Name="precioCosto" ColumnName="precioCosto" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Utilidades;
+using Utilidades.Exceptions;
 using Utilidades.Interfaces;
 
 namespace CapaPresentacion
@@ -18,13 +19,13 @@ namespace CapaPresentacion
     public partial class frmProductos : Form
     {
 
-        private IGenericaNegocio<clsProductos> insBProductos { get; set; }
-        public clsProductos producto { get; set; }
+        private IGenericaNegocio<tbProductos> insBProductos { get; set; }
+        public tbProductos producto { get; set; }
 
         private bool isNew = true;
 
 
-        public frmProductos(IGenericaNegocio<clsProductos> _insBProductos)
+        public frmProductos(IGenericaNegocio<tbProductos> _insBProductos)
         {
             InitializeComponent();
             this.insBProductos = _insBProductos;
@@ -38,40 +39,48 @@ namespace CapaPresentacion
 
         private void frmProductos_Load(object sender, EventArgs e)
         {
+            try
+            {
+                isNew = producto == null ? true : false;
 
-            isNew = producto == null ? true : false;
 
+                //funcion de producto nuevo
+                if (isNew)
+                {//crear nuevo
 
-            //funcion de producto nuevo
-            if (isNew)
-            {//crear nuevo
-
-                lblTitulo.Text = "Crear Producto Nuevo";
-                cboCategoria.SelectedIndex = 0;
-                cboImpuesto.SelectedIndex = 0;
-                btnEliminar.Enabled = false;
+                    lblTitulo.Text = "Crear Producto Nuevo";
+                    cboCategoria.SelectedIndex = 0;
+                    cboImpuesto.SelectedIndex = 0;
+                    btnEliminar.Enabled = false;
+                }
+                else
+                {//producto existente para modificar o eliminar
+                    lblTitulo.Text = "Modificar/Eliminar Producto";
+                    btnGuardar.Text = "Modificar";
+                    txtCodigo.ReadOnly = true;
+                    btnEliminar.Enabled = true;
+                    cargarForm();
+                }
             }
-            else
-            {//producto existente para modificar o eliminar
-                lblTitulo.Text = "Modificar/Eliminar Producto";
-                btnGuardar.Text = "Modificar";
-                txtCodigo.ReadOnly = true;
-                btnEliminar.Enabled = true;
-                cargarForm();
-            }           
+            catch (Exception)
+            {
+
+                MessageBox.Show("Error en la carga de datos del formulario.");
+            }
+              
         }
 
         private void cargarForm()
         {
-            txtID.Text = producto.id.ToString();
-            txtCodigo.Text = producto.codigo;
-            txtNombre.Text = producto.nombre;
-            txtPrecioCosto.Text = producto.precioCosto.ToString();
-            txtUtilidad.Text = producto.utilidad.ToString();
-            cboImpuesto.Text = producto.impuesto.ToString();
-            txtPrecioVenta.Text = producto.precioVenta.ToString();
-            txtProveedor.Text = producto.proveedor;
-            cboCategoria.Text = producto.categoria;
+            txtID.Text = producto.id.ToString().Trim();
+            txtCodigo.Text = producto.codigo.Trim();
+            txtNombre.Text = producto.nombre.Trim();
+            txtPrecioCosto.Text = producto.precioCosto.ToString().Trim();
+            txtUtilidad.Text = producto.utilidad.ToString().Trim();
+            cboImpuesto.Text = producto.impuesto.ToString().Trim();
+            txtPrecioVenta.Text = producto.precioVenta.ToString().Trim();
+            txtProveedor.Text = producto.proveedor.Trim();
+            cboCategoria.Text = producto.categoria.Trim();
 
         }
 
@@ -87,63 +96,102 @@ namespace CapaPresentacion
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-
-            if (validarForm())
+            try
             {
-                //MANDAR A GUARDAR
-
-                clsProductos product;
-
-                if (isNew)
+                if (validarForm())
                 {
-                    product = new clsProductos();
+                    //MANDAR A GUARDAR
+
+                    tbProductos product;
+
+                    if (isNew)
+                    {
+                        product = new tbProductos();
+
+                    }
+                    else
+                    {
+                        product = producto;
+
+                    }
+
+                    //asigna valores de los controles a la entidad productos
+                    product.codigo = txtCodigo.Text;
+                    product.nombre = txtNombre.Text;
+                    product.precioCosto = decimal.Parse(txtPrecioCosto.Text);
+                    product.utilidad = decimal.Parse(txtUtilidad.Text);
+                    product.impuesto = int.Parse(cboImpuesto.Text);
+                    product.precioVenta = decimal.Parse(txtPrecioVenta.Text);
+                    product.categoria = cboCategoria.Text;
+                    product.proveedor = txtProveedor.Text;
+                    //asigna estado true xq estamos creando la entidad o modificando. por lo tanto tiene que estar true
+                    product.estado = true;
+
+
+                    //creo instancia de obtjeto de NEGOCIO- pasar los datos a negocio
+                    //BProductos ProductoIns = new BProductos();
+
+                    var result = new tbProductos();
+                    if (isNew)
+                    {
+                        result = insBProductos.guardar(product);
+                    }
+                    else
+                    {
+                        result = insBProductos.modificar(product);
+                    }
+
+
+
+                    if (result != null)
+                    {
+                        MessageBox.Show("Se guardo correctamente", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro al guardar", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
 
                 }
-                else
-                {
-                    product = producto;
-
-                }
-
-                //asigna valores de los controles a la entidad productos
-                product.codigo = txtCodigo.Text;
-                product.nombre = txtNombre.Text;
-                product.precioCosto = decimal.Parse(txtPrecioCosto.Text);
-                product.utilidad = decimal.Parse(txtUtilidad.Text);
-                product.impuesto = int.Parse(cboImpuesto.Text);
-                product.precioVenta = decimal.Parse(txtPrecioVenta.Text);
-                product.categoria = cboCategoria.Text;
-                product.proveedor = txtProveedor.Text;
-                //asigna estado true xq estamos creando la entidad o modificando. por lo tanto tiene que estar true
-                product.estado = true;
 
 
-                //creo instancia de obtjeto de NEGOCIO- pasar los datos a negocio
-                //BProductos ProductoIns = new BProductos();
-
-                var result = new clsProductos();
-                if (isNew)
-                {
-                    result = insBProductos.guardar(product);
-                }
-                else
-                {
-                    result = insBProductos.modificar(product);
-                }
-               
-
-
-                if (result!=null)
-                {
-                    MessageBox.Show("Se guardo correctamente", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Erro al guardar", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
 
             }
+            catch (EntityExistException ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            catch (EntityExistDisableException ex)
+            {
+
+               DialogResult resp= MessageBox.Show(ex.Message+" Desea reactivarlo?","Guardar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (resp == DialogResult.Yes)
+                {
+
+                    var pro = insBProductos.obtenerPorId(txtCodigo.Text);
+                    pro.estado = true;
+                    var resultado = insBProductos.modificar(pro);
+                    if (resultado != null)
+                    {
+                        MessageBox.Show("Se guardo correctamente", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al guardar", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }           
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error, contacte al administrador.");
+            }
+
+
+
 
 
         }
@@ -241,20 +289,28 @@ namespace CapaPresentacion
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-
-           DialogResult resp = MessageBox.Show("¿Esta seguro que desea eliminar el producto?", "Eliminar", 
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            
-            if(resp == DialogResult.Yes)
+            try
             {
-                bool result = insBProductos.eliminar(producto.codigo);
-                if (result)
-                {
-                    MessageBox.Show("Se eliminó correctamente", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-                }
+                DialogResult resp = MessageBox.Show("¿Esta seguro que desea eliminar el producto?", "Eliminar",
+               MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
+                if (resp == DialogResult.Yes)
+                {
+                    bool result = insBProductos.eliminar(producto.codigo);
+                    if (result)
+                    {
+                        MessageBox.Show("Se eliminó correctamente", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+
+                }
             }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error al elimnar");
+            }
+          
 
         }
     }

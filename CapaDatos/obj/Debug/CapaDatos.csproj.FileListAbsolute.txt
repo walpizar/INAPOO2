@@ -20,3 +20,8 @@ C:\Users\walpi\Desktop\POO\POOINA\CapaDatos\obj\Debug\CapaDatos.csproj.CoreCompi
 C:\Users\walpi\Desktop\POO\POOINA\CapaDatos\obj\Debug\CapaDatos.csproj.CopyComplete
 C:\Users\walpi\Desktop\POO\POOINA\CapaDatos\obj\Debug\CapaDatos.dll
 C:\Users\walpi\Desktop\POO\POOINA\CapaDatos\obj\Debug\CapaDatos.pdb
+C:\Users\walpi\Desktop\POO\POOINA\CapaDatos\bin\Debug\CapaDatos.dll.config
+C:\Users\walpi\Desktop\POO\POOINA\CapaDatos\bin\Debug\EntityFramework.dll
+C:\Users\walpi\Desktop\POO\POOINA\CapaDatos\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\walpi\Desktop\POO\POOINA\CapaDatos\bin\Debug\EntityFramework.xml
+C:\Users\walpi\Desktop\POO\POOINA\CapaDatos\bin\Debug\EntityFramework.SqlServer.xml

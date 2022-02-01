@@ -8,54 +8,83 @@ using Utilidades.Interfaces;
 
 namespace CapaDatos
 {
-    public class DProductos : IGenericaDatos<clsProductos>
+    public class DProductos : IGenericaDatos<tbProductos>
     {
         //lista para guardar en momoria los productos
-        public List<clsProductos> listaProducto { get; set; }
-
+        public List<tbProductos> listaProducto { get; set; }
+ 
 
         public DProductos()
         {
             //cuando la capa de datos se instancie, tambien me instancie la lista vacia nueva.
-           listaProducto = new List<clsProductos>();
+           listaProducto = new List<tbProductos>();
+           
         }
 
 
         public bool eliminar(string codigo)
         {
-
-            // borrado fisico
-            //var productAntiguo = listaProducto.Where(x => x.codigo == codigo).SingleOrDefault();
-            //listaProducto.Remove(productAntiguo);
-
-
-            //otra manera
-
-            //var productAntiguo = listaProducto.Where(x => x.codigo == codigo).SingleOrDefault();
-            //listaProducto.Remove(productAntiguo);
-
-            //productAntiguo.estado = false;
-            //listaProducto.Add(productAntiguo);
+            try
+            {
+                // borrado fisico
+                //var productAntiguo = listaProducto.Where(x => x.codigo == codigo).SingleOrDefault();
+                //listaProducto.Remove(productAntiguo);
 
 
+                //otra manera
 
-            //borrado logico
-            listaProducto.Where(x => x.codigo == codigo).SingleOrDefault().estado = false;
+                //var productAntiguo = listaProducto.Where(x => x.codigo == codigo).SingleOrDefault();
+                //listaProducto.Remove(productAntiguo);
+
+                //productAntiguo.estado = false;
+                //listaProducto.Add(productAntiguo);
 
 
-            return true;
+
+                //borrado logico
+                listaProducto.Where(x => x.codigo == codigo).SingleOrDefault().estado = false;
+
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+           
 
         }
 
-        public clsProductos guardar(clsProductos entidad)
+        public tbProductos guardar(tbProductos entidad)
         {
-            listaProducto.Add(entidad);
-            return entidad;
+            try
+            {
+
+                using (var context = new Entities())
+                {
+                    entidad = context.tbProductos.Add(entidad);
+                    context.SaveChanges();
+
+
+                }
+
+
+
+                  
+                return entidad;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+           
         }
 
-        public clsProductos modificar(clsProductos entidad)
+        public tbProductos modificar(tbProductos entidad)
         {
-            var productAntiguo = listaProducto.Where(x=>x.codigo==entidad.codigo).SingleOrDefault();
+            var productAntiguo = listaProducto.Where(x=>x.codigo.Trim()==entidad.codigo.Trim()).SingleOrDefault();
             listaProducto.Remove(productAntiguo);
             listaProducto.Add(entidad);
             return entidad;
@@ -63,16 +92,45 @@ namespace CapaDatos
 
         }
 
-        public clsProductos obtenerPorId(string _codigo)
+        public tbProductos obtenerPorId(string _codigo)
         {
+
+            try
+            {
+                using (var context = new Entities())
+                {
+                    return context.tbProductos.Where(x => x.codigo.Trim() == _codigo.Trim()).SingleOrDefault();
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
             //lambda
-           return listaProducto.Where(x => x.codigo == _codigo).SingleOrDefault();
+            //return listaProducto.Where(x => x.codigo == _codigo).SingleOrDefault();
 
         }
 
-        public IEnumerable<clsProductos> obtenerTodos()
+        public IEnumerable<tbProductos> obtenerTodos()
         {
-            return listaProducto.Where(x=>x.estado==true).ToList();
+            try
+            {
+                using (var context = new Entities())
+                {
+                    return context.tbProductos.Where(x => x.estado == true).ToList();
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            
         }
     }
 }

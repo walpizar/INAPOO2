@@ -64,3 +64,8 @@ C:\Users\walpi\Desktop\POO\POOINA\CapaPresentacion\obj\Debug\CapaPresentacion.cs
 C:\Users\walpi\Desktop\POO\POOINA\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.CopyComplete
 C:\Users\walpi\Desktop\POO\POOINA\CapaPresentacion\obj\Debug\CapaPresentacion.exe
 C:\Users\walpi\Desktop\POO\POOINA\CapaPresentacion\obj\Debug\CapaPresentacion.pdb
+C:\Users\walpi\Desktop\POO\POOINA\CapaPresentacion\bin\Debug\EntityFramework.dll
+C:\Users\walpi\Desktop\POO\POOINA\CapaPresentacion\bin\Debug\CapaDatos.dll.config
+C:\Users\walpi\Desktop\POO\POOINA\CapaPresentacion\bin\Debug\EntityFramework.xml
+C:\Users\walpi\Desktop\POO\POOINA\CapaPresentacion\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\walpi\Desktop\POO\POOINA\CapaPresentacion\bin\Debug\EntityFramework.SqlServer.xml

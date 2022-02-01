@@ -59,10 +59,23 @@ namespace CapaPresentacion
         {
             //frmConsultaProductos frmProductos = new frmConsultaProductos();
             //frmProductos.ShowDialog();
+            try
+            {
+                var form = serviceProvider.GetRequiredService<frmConsultaProductos>();
+                form.ShowDialog(this);
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Error en procesos contacte a no se");
+            }
+        
 
 
-            var form = serviceProvider.GetRequiredService<frmConsultaProductos>();
-            form.ShowDialog(this);
+
+
+
+          
 
         }
 
