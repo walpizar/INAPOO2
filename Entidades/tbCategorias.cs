@@ -12,21 +12,18 @@ namespace Entidades
     using System;
     using System.Collections.Generic;
     
-    public partial class tbProductos
+    public partial class tbCategorias
     {
-        public int id { get; set; }
-        public string codigo { get; set; }
-        public string nombre { get; set; }
-        public decimal precioCosto { get; set; }
-        public decimal utilidad { get; set; }
-        public int idImpuesto { get; set; }
-        public decimal precioVenta { get; set; }
-        public int idCategoria { get; set; }
-        public string idProveedor { get; set; }
-        public bool estado { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public tbCategorias()
+        {
+            this.tbProductos = new HashSet<tbProductos>();
+        }
     
-        public virtual tbCategorias tbCategorias { get; set; }
-        public virtual tbImpuestos tbImpuestos { get; set; }
-        public virtual tbProveedores tbProveedores { get; set; }
+        public int id { get; set; }
+        public string nombre { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbProductos> tbProductos { get; set; }
     }
 }

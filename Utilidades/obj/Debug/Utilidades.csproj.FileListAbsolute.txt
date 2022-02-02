@@ -10,3 +10,9 @@ C:\Users\walpi\Desktop\POO\POOINA\Utilidades\obj\Debug\Utilidades.csprojAssembly
 C:\Users\walpi\Desktop\POO\POOINA\Utilidades\obj\Debug\Utilidades.csproj.CoreCompileInputs.cache
 C:\Users\walpi\Desktop\POO\POOINA\Utilidades\obj\Debug\Utilidades.dll
 C:\Users\walpi\Desktop\POO\POOINA\Utilidades\obj\Debug\Utilidades.pdb
+C:\Users\INA\Desktop\P00\INAPOO2\Utilidades\bin\Debug\Utilidades.dll
+C:\Users\INA\Desktop\P00\INAPOO2\Utilidades\bin\Debug\Utilidades.pdb
+C:\Users\INA\Desktop\P00\INAPOO2\Utilidades\obj\Debug\Utilidades.csprojAssemblyReference.cache
+C:\Users\INA\Desktop\P00\INAPOO2\Utilidades\obj\Debug\Utilidades.csproj.CoreCompileInputs.cache
+C:\Users\INA\Desktop\P00\INAPOO2\Utilidades\obj\Debug\Utilidades.dll
+C:\Users\INA\Desktop\P00\INAPOO2\Utilidades\obj\Debug\Utilidades.pdb

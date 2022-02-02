@@ -55,6 +55,8 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.txtNombreProv = new System.Windows.Forms.TextBox();
+            this.txtValor = new System.Windows.Forms.TextBox();
             this.pnlTitulo.SuspendLayout();
             this.pnlEquinaDerecha.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxCerrar)).BeginInit();
@@ -104,6 +106,8 @@
             // 
             // gbxProducto
             // 
+            this.gbxProducto.Controls.Add(this.txtValor);
+            this.gbxProducto.Controls.Add(this.txtNombreProv);
             this.gbxProducto.Controls.Add(this.txtProveedor);
             this.gbxProducto.Controls.Add(this.label9);
             this.gbxProducto.Controls.Add(this.cboCategoria);
@@ -152,12 +156,6 @@
             // 
             this.cboCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCategoria.FormattingEnabled = true;
-            this.cboCategoria.Items.AddRange(new object[] {
-            "Frutas",
-            "Abarrotes",
-            "Linea Blanca",
-            "Carnes",
-            "Bebidas"});
             this.cboCategoria.Location = new System.Drawing.Point(99, 242);
             this.cboCategoria.Name = "cboCategoria";
             this.cboCategoria.Size = new System.Drawing.Size(196, 24);
@@ -176,13 +174,6 @@
             // 
             this.cboImpuesto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboImpuesto.FormattingEnabled = true;
-            this.cboImpuesto.Items.AddRange(new object[] {
-            "0",
-            "1",
-            "2",
-            "4",
-            "8",
-            "13"});
             this.cboImpuesto.Location = new System.Drawing.Point(99, 184);
             this.cboImpuesto.Name = "cboImpuesto";
             this.cboImpuesto.Size = new System.Drawing.Size(196, 24);
@@ -336,6 +327,22 @@
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
+            // txtNombreProv
+            // 
+            this.txtNombreProv.Location = new System.Drawing.Point(99, 301);
+            this.txtNombreProv.Name = "txtNombreProv";
+            this.txtNombreProv.ReadOnly = true;
+            this.txtNombreProv.Size = new System.Drawing.Size(334, 22);
+            this.txtNombreProv.TabIndex = 21;
+            // 
+            // txtValor
+            // 
+            this.txtValor.Location = new System.Drawing.Point(309, 187);
+            this.txtValor.Name = "txtValor";
+            this.txtValor.ReadOnly = true;
+            this.txtValor.Size = new System.Drawing.Size(78, 22);
+            this.txtValor.TabIndex = 22;
+            // 
             // frmProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -390,5 +397,7 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.TextBox txtNombreProv;
+        private System.Windows.Forms.TextBox txtValor;
     }
 }

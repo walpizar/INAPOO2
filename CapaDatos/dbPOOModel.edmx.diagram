@@ -5,8 +5,16 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="95d818c89acb4ab0b593907f35941c65" Name="Diagram1">
-        <EntityTypeShape EntityType="dbPOOModel.tbPersona" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbPOOModel.tbProductos" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="dbPOOModel.tbCategorias" Width="1.5" PointX="0.75" PointY="7.875" />
+        <EntityTypeShape EntityType="dbPOOModel.tbEstudiantes" Width="1.5" PointX="8" PointY="1" />
+        <EntityTypeShape EntityType="dbPOOModel.tbImpuestos" Width="1.5" PointX="0.75" PointY="5.25" />
+        <EntityTypeShape EntityType="dbPOOModel.tbPersona" Width="1.5" PointX="5.75" PointY="1" />
+        <EntityTypeShape EntityType="dbPOOModel.tbProductos" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="dbPOOModel.tbProveedores" Width="1.5" PointX="0.75" PointY="1.75" />
+        <AssociationConnector Association="dbPOOModel.FK_tbProductos_tbCategorias" />
+        <AssociationConnector Association="dbPOOModel.FK_tbEstudiantes_tbPersona" />
+        <AssociationConnector Association="dbPOOModel.FK_tbProductos_tbImpuestos" />
+        <AssociationConnector Association="dbPOOModel.FK_tbProductos_tbProveedores" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -1,15 +1,44 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="dbPOOModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="tbCategorias">
+      <EntityTypeMapping TypeName="dbPOOModel.tbCategorias">
+        <MappingFragment StoreEntitySet="tbCategorias">
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbEstudiantes">
+      <EntityTypeMapping TypeName="dbPOOModel.tbEstudiantes">
+        <MappingFragment StoreEntitySet="tbEstudiantes">
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="horario" ColumnName="horario" />
+          <ScalarProperty Name="idPersona" ColumnName="idPersona" />
+          <ScalarProperty Name="grupo" ColumnName="grupo" />
+          <ScalarProperty Name="carnet" ColumnName="carnet" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbImpuestos">
+      <EntityTypeMapping TypeName="dbPOOModel.tbImpuestos">
+        <MappingFragment StoreEntitySet="tbImpuestos">
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="tbPersona">
       <EntityTypeMapping TypeName="dbPOOModel.tbPersona">
         <MappingFragment StoreEntitySet="tbPersona">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="identificacion" ColumnName="identificacion" />
-          <ScalarProperty Name="tipoId" ColumnName="tipoId" />
-          <ScalarProperty Name="nombre" ColumnName="nombre" />
-          <ScalarProperty Name="apellido1" ColumnName="apellido1" />
           <ScalarProperty Name="apellido2" ColumnName="apellido2" />
+          <ScalarProperty Name="apellido1" ColumnName="apellido1" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="tipoId" ColumnName="tipoId" />
+          <ScalarProperty Name="identificacion" ColumnName="identificacion" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -17,14 +46,24 @@
       <EntityTypeMapping TypeName="dbPOOModel.tbProductos">
         <MappingFragment StoreEntitySet="tbProductos">
           <ScalarProperty Name="estado" ColumnName="estado" />
-          <ScalarProperty Name="proveedor" ColumnName="proveedor" />
-          <ScalarProperty Name="categoria" ColumnName="categoria" />
+          <ScalarProperty Name="idProveedor" ColumnName="idProveedor" />
+          <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
           <ScalarProperty Name="precioVenta" ColumnName="precioVenta" />
-          <ScalarProperty Name="impuesto" ColumnName="impuesto" />
+          <ScalarProperty Name="idImpuesto" ColumnName="idImpuesto" />
           <ScalarProperty Name="utilidad" ColumnName="utilidad" />
           <ScalarProperty Name="precioCosto" ColumnName="precioCosto" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
           <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbProveedores">
+      <EntityTypeMapping TypeName="dbPOOModel.tbProveedores">
+        <MappingFragment StoreEntitySet="tbProveedores">
+          <ScalarProperty Name="apellido2" ColumnName="apellido2" />
+          <ScalarProperty Name="apellido1" ColumnName="apellido1" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>

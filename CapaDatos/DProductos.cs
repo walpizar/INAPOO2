@@ -122,7 +122,7 @@ namespace CapaDatos
                 {
 
 
-                    return context.tbProductos.Where(x => x.estado == true).ToList();
+                    return context.tbProductos.Where(x => x.estado == true).Include("tbProveedores").Include("tbImpuestos").ToList();
                 }
 
 

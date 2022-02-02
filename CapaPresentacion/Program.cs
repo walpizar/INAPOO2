@@ -58,14 +58,19 @@ namespace CapaPresentacion
 
             //objetos de capa negocio
             services.AddScoped<IGenericaNegocio<tbProductos>, BProductos>();
-            // services.AddScoped<IGenerica<clsProveedor>, BProveedores>();
+            services.AddScoped<IGenericaNegocio<tbCategorias>, BCategoria>();
+            services.AddScoped<IGenericaNegocio<tbImpuestos>, BImpuestos>();
+            services.AddScoped<IGenericaNegocio<tbProveedores>, BProveedores>();
 
 
             //objetos de capa de datos
             services.AddScoped<IGenericaDatos<tbProductos>, DProductos>();
-           // services.AddScoped<IGenerica<clsProveedor>, DProveedores>();
+            services.AddScoped<IGenericaDatos<tbCategorias>, DCategoria>();
+            services.AddScoped<IGenericaDatos<tbImpuestos>, DImpuestos>();
+            services.AddScoped<IGenericaDatos<tbProveedores>, DProveedores>();
+            // services.AddScoped<IGenerica<clsProveedor>, DProveedores>();
 
-         
+
 
 
 

@@ -1,5 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="dbPOOModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbCategorias">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbEstudiantes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="carnet" Type="nchar" MaxLength="10" />
+    <Property Name="grupo" Type="int" />
+    <Property Name="idPersona" Type="int" />
+    <Property Name="horario" Type="nchar" MaxLength="500" />
+    <Property Name="estado" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbImpuestos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nchar" MaxLength="50" />
+    <Property Name="valor" Type="int" />
+  </EntityType>
   <EntityType Name="tbPersona">
     <Key>
       <PropertyRef Name="id" />
@@ -20,14 +46,91 @@
     <Property Name="nombre" Type="nchar" MaxLength="30" Nullable="false" />
     <Property Name="precioCosto" Type="decimal" Precision="18" Scale="2" Nullable="false" />
     <Property Name="utilidad" Type="decimal" Precision="18" Scale="2" Nullable="false" />
-    <Property Name="impuesto" Type="int" Nullable="false" />
+    <Property Name="idImpuesto" Type="int" Nullable="false" />
     <Property Name="precioVenta" Type="decimal" Precision="18" Scale="2" Nullable="false" />
-    <Property Name="categoria" Type="nchar" MaxLength="500" Nullable="false" />
-    <Property Name="proveedor" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="idCategoria" Type="int" Nullable="false" />
+    <Property Name="idProveedor" Type="nchar" MaxLength="50" Nullable="false" />
     <Property Name="estado" Type="bit" Nullable="false" />
   </EntityType>
+  <EntityType Name="tbProveedores">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="nombre" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="apellido1" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="apellido2" Type="nchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_tbEstudiantes_tbPersona">
+    <End Role="tbPersona" Type="Self.tbPersona" Multiplicity="0..1" />
+    <End Role="tbEstudiantes" Type="Self.tbEstudiantes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbPersona">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tbEstudiantes">
+        <PropertyRef Name="idPersona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbProductos_tbCategorias">
+    <End Role="tbCategorias" Type="Self.tbCategorias" Multiplicity="1" />
+    <End Role="tbProductos" Type="Self.tbProductos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbCategorias">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tbProductos">
+        <PropertyRef Name="idCategoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbProductos_tbImpuestos">
+    <End Role="tbImpuestos" Type="Self.tbImpuestos" Multiplicity="1" />
+    <End Role="tbProductos" Type="Self.tbProductos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbImpuestos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tbProductos">
+        <PropertyRef Name="idImpuesto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbProductos_tbProveedores">
+    <End Role="tbProveedores" Type="Self.tbProveedores" Multiplicity="1" />
+    <End Role="tbProductos" Type="Self.tbProductos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbProveedores">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tbProductos">
+        <PropertyRef Name="idProveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="dbPOOModelStoreContainer">
+    <EntitySet Name="tbCategorias" EntityType="Self.tbCategorias" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbEstudiantes" EntityType="Self.tbEstudiantes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbImpuestos" EntityType="Self.tbImpuestos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbPersona" EntityType="Self.tbPersona" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbProductos" EntityType="Self.tbProductos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbProveedores" EntityType="Self.tbProveedores" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tbEstudiantes_tbPersona" Association="Self.FK_tbEstudiantes_tbPersona">
+      <End Role="tbPersona" EntitySet="tbPersona" />
+      <End Role="tbEstudiantes" EntitySet="tbEstudiantes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbProductos_tbCategorias" Association="Self.FK_tbProductos_tbCategorias">
+      <End Role="tbCategorias" EntitySet="tbCategorias" />
+      <End Role="tbProductos" EntitySet="tbProductos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbProductos_tbImpuestos" Association="Self.FK_tbProductos_tbImpuestos">
+      <End Role="tbImpuestos" EntitySet="tbImpuestos" />
+      <End Role="tbProductos" EntitySet="tbProductos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbProductos_tbProveedores" Association="Self.FK_tbProductos_tbProveedores">
+      <End Role="tbProveedores" EntitySet="tbProveedores" />
+      <End Role="tbProductos" EntitySet="tbProductos" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>

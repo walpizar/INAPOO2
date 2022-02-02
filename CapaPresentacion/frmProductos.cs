@@ -20,16 +20,22 @@ namespace CapaPresentacion
     {
 
         private IGenericaNegocio<tbProductos> insBProductos { get; set; }
+        public IGenericaNegocio<tbCategorias> InsCategorias { get; }
+        public IGenericaNegocio<tbImpuestos> InsImpuestos { get; }
+        public IGenericaNegocio<tbProveedores> InsProveedores { get; }
         public tbProductos producto { get; set; }
 
         private bool isNew = true;
 
 
-        public frmProductos(IGenericaNegocio<tbProductos> _insBProductos)
+        public frmProductos(IGenericaNegocio<tbProductos> _insBProductos, IGenericaNegocio<tbCategorias> _insCategorias, IGenericaNegocio<tbImpuestos> _insImpuestos
+            , IGenericaNegocio<tbProveedores> _insProveedores)
         {
             InitializeComponent();
             this.insBProductos = _insBProductos;
-         
+            InsCategorias = _insCategorias;
+            InsImpuestos = _insImpuestos;
+            InsProveedores = _insProveedores;
         }
 
         private void pbxCerrar_Click(object sender, EventArgs e)
@@ -41,6 +47,8 @@ namespace CapaPresentacion
         {
             try
             {
+                cargarCombos();
+
                 isNew = producto == null ? true : false;
 
 
@@ -70,6 +78,30 @@ namespace CapaPresentacion
               
         }
 
+        private void cargarCombos()
+        {
+            try
+            {
+
+                var listaCategorias = InsCategorias.obtenerTodos();
+                var listaImpuestos = InsImpuestos.obtenerTodos();
+
+                cboCategoria.DataSource = listaCategorias;
+                cboCategoria.DisplayMember = "nombre";
+                cboCategoria.ValueMember = "id";
+
+                cboImpuesto.DataSource = listaImpuestos;
+                cboImpuesto.DisplayMember = "nombre";
+                cboImpuesto.ValueMember = "id";
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Error al cargar las listas");
+            }
+        }
+
         private void cargarForm()
         {
             txtID.Text = producto.id.ToString().Trim();
@@ -77,11 +109,12 @@ namespace CapaPresentacion
             txtNombre.Text = producto.nombre.Trim();
             txtPrecioCosto.Text = producto.precioCosto.ToString().Trim();
             txtUtilidad.Text = producto.utilidad.ToString().Trim();
-            cboImpuesto.Text = producto.impuesto.ToString().Trim();
+            cboImpuesto.SelectedValue = producto.idImpuesto;
             txtPrecioVenta.Text = producto.precioVenta.ToString().Trim();
-            txtProveedor.Text = producto.proveedor.Trim();
-            cboCategoria.Text = producto.categoria.Trim();
-
+            txtProveedor.Text = producto.idProveedor.Trim();
+            cboCategoria.SelectedValue = producto.idCategoria;
+            txtNombreProv.Text = producto.tbProveedores.nombre + " " + producto.tbProveedores.apellido1;
+            txtValor.Text = producto.tbImpuestos.valor.ToString();
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
@@ -121,10 +154,10 @@ namespace CapaPresentacion
                     product.nombre = txtNombre.Text;
                     product.precioCosto = decimal.Parse(txtPrecioCosto.Text);
                     product.utilidad = decimal.Parse(txtUtilidad.Text);
-                    product.impuesto = int.Parse(cboImpuesto.Text);
+                    product.idImpuesto = (int)cboImpuesto.SelectedValue;
                     product.precioVenta = decimal.Parse(txtPrecioVenta.Text);
-                    product.categoria = cboCategoria.Text;
-                    product.proveedor = txtProveedor.Text;
+                    product.idCategoria = (int)cboCategoria.SelectedValue;
+                    product.idProveedor = txtProveedor.Text;
                     //asigna estado true xq estamos creando la entidad o modificando. por lo tanto tiene que estar true
                     product.estado = true;
 

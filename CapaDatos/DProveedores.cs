@@ -6,19 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Utilidades.Interfaces;
 
-namespace CapaNegocio
+namespace CapaDatos
 {
-    public class BProveedores : IGenericaNegocio<tbProveedores>
+    public class DProveedores : IGenericaDatos<tbProveedores>
     {
-        public IGenericaDatos<tbProveedores> InsProveedoresDatos { get; }
-        //inyeccion de proveedres para ir a datos
-        public BProveedores(IGenericaDatos<tbProveedores> _insProveedoresDatos)
-        {
-            InsProveedoresDatos = _insProveedoresDatos;
-        }
-
-  
-
         public bool eliminar(string id)
         {
             throw new NotImplementedException();
@@ -41,16 +32,7 @@ namespace CapaNegocio
 
         public IEnumerable<tbProveedores> obtenerTodos()
         {
-            try
-            {
-                return InsProveedoresDatos.obtenerTodos();
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }            
-       
+            throw new NotImplementedException();
         }
     }
 }

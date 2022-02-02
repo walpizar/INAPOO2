@@ -8,49 +8,49 @@ using Utilidades.Interfaces;
 
 namespace CapaNegocio
 {
-    public class BProveedores : IGenericaNegocio<tbProveedores>
+    public class BCategoria : IGenericaNegocio<tbCategorias>
     {
-        public IGenericaDatos<tbProveedores> InsProveedoresDatos { get; }
-        //inyeccion de proveedres para ir a datos
-        public BProveedores(IGenericaDatos<tbProveedores> _insProveedoresDatos)
+        public IGenericaDatos<tbCategorias> InsCategorias { get; }
+
+        //inyeccion de categorias para para ir a datos
+        public BCategoria(IGenericaDatos<tbCategorias> _insCategorias)
         {
-            InsProveedoresDatos = _insProveedoresDatos;
+            InsCategorias = _insCategorias;
         }
 
-  
+   
 
         public bool eliminar(string id)
         {
             throw new NotImplementedException();
         }
 
-        public tbProveedores guardar(tbProveedores entidad)
+        public tbCategorias guardar(tbCategorias entidad)
         {
             throw new NotImplementedException();
         }
 
-        public tbProveedores modificar(tbProveedores entidad)
+        public tbCategorias modificar(tbCategorias entidad)
         {
             throw new NotImplementedException();
         }
 
-        public tbProveedores obtenerPorId(string id)
+        public tbCategorias obtenerPorId(string id)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<tbProveedores> obtenerTodos()
+        public IEnumerable<tbCategorias> obtenerTodos()
         {
             try
             {
-                return InsProveedoresDatos.obtenerTodos();
+                return InsCategorias.obtenerTodos();
             }
             catch (Exception ex)
             {
 
                 throw ex;
-            }            
-       
+            }
         }
     }
 }

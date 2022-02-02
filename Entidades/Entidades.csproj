@@ -53,17 +53,28 @@
     <Compile Include="clsEstudiante.cs" />
     <Compile Include="clsPersona.cs" />
     <Compile Include="clsProfesor.cs" />
-    <Compile Include="clsProveedor.cs" />
     <Compile Include="dbPOOModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dbPOOModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="tbCategorias.cs">
+      <DependentUpon>dbPOOModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbEstudiantes.cs">
+      <DependentUpon>dbPOOModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbImpuestos.cs">
+      <DependentUpon>dbPOOModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="tbPersona.cs">
       <DependentUpon>dbPOOModel.tt</DependentUpon>
     </Compile>
     <Compile Include="tbProductos.cs">
+      <DependentUpon>dbPOOModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbProveedores.cs">
       <DependentUpon>dbPOOModel.tt</DependentUpon>
     </Compile>
   </ItemGroup>

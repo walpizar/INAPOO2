@@ -1,20 +1,70 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="dbPOOModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tbCategorias" EntityType="dbPOOModel.tbCategorias" />
+    <EntitySet Name="tbEstudiantes" EntityType="dbPOOModel.tbEstudiantes" />
+    <EntitySet Name="tbImpuestos" EntityType="dbPOOModel.tbImpuestos" />
+    <EntitySet Name="tbPersona" EntityType="dbPOOModel.tbPersona" />
+    <EntitySet Name="tbProductos" EntityType="dbPOOModel.tbProductos" />
+    <EntitySet Name="tbProveedores" EntityType="dbPOOModel.tbProveedores" />
+    <AssociationSet Name="FK_tbProductos_tbCategorias" Association="dbPOOModel.FK_tbProductos_tbCategorias">
+      <End Role="tbCategorias" EntitySet="tbCategorias" />
+      <End Role="tbProductos" EntitySet="tbProductos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbEstudiantes_tbPersona" Association="dbPOOModel.FK_tbEstudiantes_tbPersona">
+      <End Role="tbPersona" EntitySet="tbPersona" />
+      <End Role="tbEstudiantes" EntitySet="tbEstudiantes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbProductos_tbImpuestos" Association="dbPOOModel.FK_tbProductos_tbImpuestos">
+      <End Role="tbImpuestos" EntitySet="tbImpuestos" />
+      <End Role="tbProductos" EntitySet="tbProductos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbProductos_tbProveedores" Association="dbPOOModel.FK_tbProductos_tbProveedores">
+      <End Role="tbProveedores" EntitySet="tbProveedores" />
+      <End Role="tbProductos" EntitySet="tbProductos" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="tbCategorias">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="tbProductos" Relationship="dbPOOModel.FK_tbProductos_tbCategorias" FromRole="tbCategorias" ToRole="tbProductos" />
+  </EntityType>
+  <EntityType Name="tbEstudiantes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="carnet" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="grupo" Type="Int32" />
+    <Property Name="idPersona" Type="Int32" />
+    <Property Name="horario" Type="String" MaxLength="500" FixedLength="true" Unicode="true" />
+    <Property Name="estado" Type="Boolean" />
+    <NavigationProperty Name="tbPersona" Relationship="dbPOOModel.FK_tbEstudiantes_tbPersona" FromRole="tbEstudiantes" ToRole="tbPersona" />
+  </EntityType>
+  <EntityType Name="tbImpuestos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="valor" Type="Int32" />
+    <NavigationProperty Name="tbProductos" Relationship="dbPOOModel.FK_tbProductos_tbImpuestos" FromRole="tbImpuestos" ToRole="tbProductos" />
+  </EntityType>
   <EntityType Name="tbPersona">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" />
-    <Property Name="identificacion" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
-    <Property Name="tipoId" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-    <Property Name="nombre" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="identificacion" Type="String" Nullable="false" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="tipoId" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="30" FixedLength="true" Unicode="true" />
     <Property Name="apellido1" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
     <Property Name="apellido2" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="tbEstudiantes" Relationship="dbPOOModel.FK_tbEstudiantes_tbPersona" FromRole="tbPersona" ToRole="tbEstudiantes" />
   </EntityType>
-  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="tbPersona" EntityType="Self.tbPersona" />
-    <EntitySet Name="tbProductos" EntityType="dbPOOModel.tbProductos" />
-  </EntityContainer>
   <EntityType Name="tbProductos">
     <Key>
       <PropertyRef Name="id" />
@@ -24,10 +74,71 @@
     <Property Name="nombre" Type="String" Nullable="false" MaxLength="30" FixedLength="true" Unicode="true" />
     <Property Name="precioCosto" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
     <Property Name="utilidad" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
-    <Property Name="impuesto" Type="Int32" Nullable="false" />
+    <Property Name="idImpuesto" Type="Int32" Nullable="false" />
     <Property Name="precioVenta" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
-    <Property Name="categoria" Type="String" Nullable="false" MaxLength="500" FixedLength="true" Unicode="true" />
-    <Property Name="proveedor" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="idCategoria" Type="Int32" Nullable="false" />
+    <Property Name="idProveedor" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
     <Property Name="estado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="tbCategorias" Relationship="dbPOOModel.FK_tbProductos_tbCategorias" FromRole="tbProductos" ToRole="tbCategorias" />
+    <NavigationProperty Name="tbImpuestos" Relationship="dbPOOModel.FK_tbProductos_tbImpuestos" FromRole="tbProductos" ToRole="tbImpuestos" />
+    <NavigationProperty Name="tbProveedores" Relationship="dbPOOModel.FK_tbProductos_tbProveedores" FromRole="tbProductos" ToRole="tbProveedores" />
   </EntityType>
+  <EntityType Name="tbProveedores">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="apellido1" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="apellido2" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="tbProductos" Relationship="dbPOOModel.FK_tbProductos_tbProveedores" FromRole="tbProveedores" ToRole="tbProductos" />
+  </EntityType>
+  <Association Name="FK_tbProductos_tbCategorias">
+    <End Type="dbPOOModel.tbCategorias" Role="tbCategorias" Multiplicity="1" />
+    <End Type="dbPOOModel.tbProductos" Role="tbProductos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbCategorias">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tbProductos">
+        <PropertyRef Name="idCategoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbEstudiantes_tbPersona">
+    <End Type="dbPOOModel.tbPersona" Role="tbPersona" Multiplicity="0..1" />
+    <End Type="dbPOOModel.tbEstudiantes" Role="tbEstudiantes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbPersona">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tbEstudiantes">
+        <PropertyRef Name="idPersona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbProductos_tbImpuestos">
+    <End Type="dbPOOModel.tbImpuestos" Role="tbImpuestos" Multiplicity="1" />
+    <End Type="dbPOOModel.tbProductos" Role="tbProductos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbImpuestos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tbProductos">
+        <PropertyRef Name="idImpuesto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbProductos_tbProveedores">
+    <End Type="dbPOOModel.tbProveedores" Role="tbProveedores" Multiplicity="1" />
+    <End Type="dbPOOModel.tbProductos" Role="tbProductos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbProveedores">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tbProductos">
+        <PropertyRef Name="idProveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

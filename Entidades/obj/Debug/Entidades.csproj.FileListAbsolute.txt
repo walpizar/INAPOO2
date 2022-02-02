@@ -15,3 +15,14 @@ C:\Users\walpi\Desktop\POO\POOINA\Entidades\bin\Debug\EntityFramework.SqlServer.
 C:\Users\walpi\Desktop\POO\POOINA\Entidades\bin\Debug\EntityFramework.xml
 C:\Users\walpi\Desktop\POO\POOINA\Entidades\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\walpi\Desktop\POO\POOINA\Entidades\obj\Debug\Entidades.csproj.CopyComplete
+C:\Users\INA\Desktop\P00\INAPOO2\Entidades\bin\Debug\Entidades.dll
+C:\Users\INA\Desktop\P00\INAPOO2\Entidades\bin\Debug\Entidades.pdb
+C:\Users\INA\Desktop\P00\INAPOO2\Entidades\bin\Debug\EntityFramework.dll
+C:\Users\INA\Desktop\P00\INAPOO2\Entidades\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\INA\Desktop\P00\INAPOO2\Entidades\bin\Debug\EntityFramework.xml
+C:\Users\INA\Desktop\P00\INAPOO2\Entidades\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\INA\Desktop\P00\INAPOO2\Entidades\obj\Debug\Entidades.csprojAssemblyReference.cache
+C:\Users\INA\Desktop\P00\INAPOO2\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
+C:\Users\INA\Desktop\P00\INAPOO2\Entidades\obj\Debug\Entidades.csproj.CopyComplete
+C:\Users\INA\Desktop\P00\INAPOO2\Entidades\obj\Debug\Entidades.dll
+C:\Users\INA\Desktop\P00\INAPOO2\Entidades\obj\Debug\Entidades.pdb
