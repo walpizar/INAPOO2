@@ -106,11 +106,12 @@ namespace CapaPresentacion
 
                     if (isNew)
                     {
+                        //CRERELA NUEVA
                         product = new tbProductos();
 
                     }
                     else
-                    {
+                    {   //UTLICE LA EXISTE
                         product = producto;
 
                     }

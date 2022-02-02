@@ -1,6 +1,7 @@
 ﻿using Entidades;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,36 +25,27 @@ namespace CapaDatos
 
         public bool eliminar(string codigo)
         {
+           
             try
             {
-                // borrado fisico
-                //var productAntiguo = listaProducto.Where(x => x.codigo == codigo).SingleOrDefault();
-                //listaProducto.Remove(productAntiguo);
 
+                var prod = obtenerPorId(codigo); //obtengo de la base
+                prod.estado = false;//eliminado logico
 
-                //otra manera
+                using (var context = new Entities())
+                {
 
-                //var productAntiguo = listaProducto.Where(x => x.codigo == codigo).SingleOrDefault();
-                //listaProducto.Remove(productAntiguo);
-
-                //productAntiguo.estado = false;
-                //listaProducto.Add(productAntiguo);
-
-
-
-                //borrado logico
-                listaProducto.Where(x => x.codigo == codigo).SingleOrDefault().estado = false;
-
-
-                return true;
+                    context.Entry<tbProductos>(prod).State = System.Data.Entity.EntityState.Modified;
+                    context.SaveChanges();
+                    return true;
+                }
             }
             catch (Exception ex)
             {
 
                 throw ex;
-            }
+            }          
            
-
         }
 
         public tbProductos guardar(tbProductos entidad)
@@ -81,10 +73,21 @@ namespace CapaDatos
 
         public tbProductos modificar(tbProductos entidad)
         {
-            var productAntiguo = listaProducto.Where(x=>x.codigo.Trim()==entidad.codigo.Trim()).SingleOrDefault();
-            listaProducto.Remove(productAntiguo);
-            listaProducto.Add(entidad);
-            return entidad;
+            try
+            {
+                using (var context = new Entities())
+                {
+
+                    context.Entry<tbProductos>(entidad).State = System.Data.Entity.EntityState.Modified;
+                    context.SaveChanges();
+                    return entidad;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
 
 
         }
@@ -117,6 +120,8 @@ namespace CapaDatos
             {
                 using (var context = new Entities())
                 {
+
+
                     return context.tbProductos.Where(x => x.estado == true).ToList();
                 }
 
