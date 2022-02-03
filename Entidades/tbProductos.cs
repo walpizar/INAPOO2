@@ -19,14 +19,14 @@ namespace Entidades
         public string nombre { get; set; }
         public decimal precioCosto { get; set; }
         public decimal utilidad { get; set; }
-        public int idImpuesto { get; set; }
+        public int idImpuesto { get; set; } 
         public decimal precioVenta { get; set; }
         public int idCategoria { get; set; }
         public string idProveedor { get; set; }
         public bool estado { get; set; }
     
         public virtual tbCategorias tbCategorias { get; set; }
-        public virtual tbImpuestos tbImpuestos { get; set; }
+        public virtual tbImpuestos tbImpuestos { get; set; } 
         public virtual tbProveedores tbProveedores { get; set; }
     }
 }

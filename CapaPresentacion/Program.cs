@@ -52,9 +52,13 @@ namespace CapaPresentacion
 
             //formularios
             services.AddTransient<frmPrincipal2>();
+
             services.AddTransient<frmConsultaProductos>();
+            services.AddTransient<frmConsultaProveedores>();
+
             services.AddTransient<frmProductos>();
             services.AddTransient<frmEstudiantes>();
+
 
             //objetos de capa negocio
             services.AddScoped<IGenericaNegocio<tbProductos>, BProductos>();
@@ -68,7 +72,7 @@ namespace CapaPresentacion
             services.AddScoped<IGenericaDatos<tbCategorias>, DCategoria>();
             services.AddScoped<IGenericaDatos<tbImpuestos>, DImpuestos>();
             services.AddScoped<IGenericaDatos<tbProveedores>, DProveedores>();
-            // services.AddScoped<IGenerica<clsProveedor>, DProveedores>();
+           
 
 
 

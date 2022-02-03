@@ -99,6 +99,7 @@
       <DependentUpon>dbPOOModel.edmx</DependentUpon>
       <LastGenOutput>dbPOOModel.Context.cs</LastGenOutput>
     </Content>
+    <Content Include="dbPOOModel.edmx.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

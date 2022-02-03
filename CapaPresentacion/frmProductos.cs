@@ -1,6 +1,7 @@
 ﻿
 using CapaNegocio;
 using Entidades;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,7 +19,7 @@ namespace CapaPresentacion
 {
     public partial class frmProductos : Form
     {
-
+        public IServiceProvider ServiceProvider { get; }
         private IGenericaNegocio<tbProductos> insBProductos { get; set; }
         public IGenericaNegocio<tbCategorias> InsCategorias { get; }
         public IGenericaNegocio<tbImpuestos> InsImpuestos { get; }
@@ -28,10 +29,11 @@ namespace CapaPresentacion
         private bool isNew = true;
 
 
-        public frmProductos(IGenericaNegocio<tbProductos> _insBProductos, IGenericaNegocio<tbCategorias> _insCategorias, IGenericaNegocio<tbImpuestos> _insImpuestos
+        public frmProductos(IServiceProvider _serviceProvider,  IGenericaNegocio<tbProductos> _insBProductos, IGenericaNegocio<tbCategorias> _insCategorias, IGenericaNegocio<tbImpuestos> _insImpuestos
             , IGenericaNegocio<tbProveedores> _insProveedores)
         {
             InitializeComponent();
+            ServiceProvider = _serviceProvider;
             this.insBProductos = _insBProductos;
             InsCategorias = _insCategorias;
             InsImpuestos = _insImpuestos;
@@ -115,6 +117,7 @@ namespace CapaPresentacion
             cboCategoria.SelectedValue = producto.idCategoria;
             txtNombreProv.Text = producto.tbProveedores.nombre + " " + producto.tbProveedores.apellido1;
             txtValor.Text = producto.tbImpuestos.valor.ToString();
+         
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
@@ -345,6 +348,21 @@ namespace CapaPresentacion
                 MessageBox.Show("Error al elimnar");
             }
           
+
+        }
+
+        private void btnBusquedaProv_Click(object sender, EventArgs e)
+        {
+            var form= ServiceProvider.GetRequiredService<frmConsultaProveedores>();
+            form.pasarDatosEvent += recibirDatos;
+           
+            form.ShowDialog(this);
+        }
+
+        private void recibirDatos(tbProveedores prov)
+        {
+            txtProveedor.Text = prov.id.Trim();
+            txtNombreProv.Text = string.Format("{0} {1} {2}", prov.nombre.Trim().ToUpper(), prov.apellido1.Trim().ToUpper(), prov.apellido2.Trim().ToUpper());
 
         }
     }

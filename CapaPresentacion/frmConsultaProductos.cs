@@ -166,5 +166,10 @@ namespace CapaPresentacion
             cargarDatos();
 
         }
+
+        private void lstvLista_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

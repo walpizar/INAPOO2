@@ -32,7 +32,22 @@ namespace CapaDatos
 
         public IEnumerable<tbProveedores> obtenerTodos()
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (var context = new Entities())
+                {
+
+
+                    return context.tbProveedores.ToList();
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
     }
 }

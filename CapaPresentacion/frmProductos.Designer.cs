@@ -34,6 +34,8 @@
             this.pbxCerrar = new System.Windows.Forms.PictureBox();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.gbxProducto = new System.Windows.Forms.GroupBox();
+            this.txtValor = new System.Windows.Forms.TextBox();
+            this.txtNombreProv = new System.Windows.Forms.TextBox();
             this.txtProveedor = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.cboCategoria = new System.Windows.Forms.ComboBox();
@@ -55,8 +57,7 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.txtNombreProv = new System.Windows.Forms.TextBox();
-            this.txtValor = new System.Windows.Forms.TextBox();
+            this.btnBusquedaProv = new System.Windows.Forms.Button();
             this.pnlTitulo.SuspendLayout();
             this.pnlEquinaDerecha.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxCerrar)).BeginInit();
@@ -71,14 +72,14 @@
             this.pnlTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTitulo.Location = new System.Drawing.Point(0, 0);
             this.pnlTitulo.Name = "pnlTitulo";
-            this.pnlTitulo.Size = new System.Drawing.Size(521, 50);
+            this.pnlTitulo.Size = new System.Drawing.Size(541, 50);
             this.pnlTitulo.TabIndex = 1;
             // 
             // pnlEquinaDerecha
             // 
             this.pnlEquinaDerecha.Controls.Add(this.pbxCerrar);
             this.pnlEquinaDerecha.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlEquinaDerecha.Location = new System.Drawing.Point(322, 0);
+            this.pnlEquinaDerecha.Location = new System.Drawing.Point(342, 0);
             this.pnlEquinaDerecha.Name = "pnlEquinaDerecha";
             this.pnlEquinaDerecha.Size = new System.Drawing.Size(199, 50);
             this.pnlEquinaDerecha.TabIndex = 2;
@@ -106,6 +107,7 @@
             // 
             // gbxProducto
             // 
+            this.gbxProducto.Controls.Add(this.btnBusquedaProv);
             this.gbxProducto.Controls.Add(this.txtValor);
             this.gbxProducto.Controls.Add(this.txtNombreProv);
             this.gbxProducto.Controls.Add(this.txtProveedor);
@@ -129,18 +131,34 @@
             this.gbxProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxProducto.Location = new System.Drawing.Point(12, 67);
             this.gbxProducto.Name = "gbxProducto";
-            this.gbxProducto.Size = new System.Drawing.Size(489, 328);
+            this.gbxProducto.Size = new System.Drawing.Size(517, 336);
             this.gbxProducto.TabIndex = 2;
             this.gbxProducto.TabStop = false;
             this.gbxProducto.Text = "Producto";
             this.gbxProducto.Enter += new System.EventHandler(this.gbxProducto_Enter);
+            // 
+            // txtValor
+            // 
+            this.txtValor.Location = new System.Drawing.Point(309, 187);
+            this.txtValor.Name = "txtValor";
+            this.txtValor.ReadOnly = true;
+            this.txtValor.Size = new System.Drawing.Size(78, 22);
+            this.txtValor.TabIndex = 22;
+            // 
+            // txtNombreProv
+            // 
+            this.txtNombreProv.Location = new System.Drawing.Point(214, 272);
+            this.txtNombreProv.Name = "txtNombreProv";
+            this.txtNombreProv.ReadOnly = true;
+            this.txtNombreProv.Size = new System.Drawing.Size(266, 22);
+            this.txtNombreProv.TabIndex = 21;
             // 
             // txtProveedor
             // 
             this.txtProveedor.Location = new System.Drawing.Point(99, 272);
             this.txtProveedor.MaxLength = 50;
             this.txtProveedor.Name = "txtProveedor";
-            this.txtProveedor.Size = new System.Drawing.Size(334, 22);
+            this.txtProveedor.Size = new System.Drawing.Size(112, 22);
             this.txtProveedor.TabIndex = 20;
             // 
             // label9
@@ -293,7 +311,7 @@
             this.btnGuardar.BackColor = System.Drawing.Color.Green;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.Navy;
-            this.btnGuardar.Location = new System.Drawing.Point(408, 409);
+            this.btnGuardar.Location = new System.Drawing.Point(441, 409);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(90, 50);
             this.btnGuardar.TabIndex = 3;
@@ -306,7 +324,7 @@
             this.btnCancelar.BackColor = System.Drawing.Color.SkyBlue;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.Navy;
-            this.btnCancelar.Location = new System.Drawing.Point(216, 409);
+            this.btnCancelar.Location = new System.Drawing.Point(249, 409);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(90, 50);
             this.btnCancelar.TabIndex = 4;
@@ -319,7 +337,7 @@
             this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.Navy;
-            this.btnEliminar.Location = new System.Drawing.Point(312, 409);
+            this.btnEliminar.Location = new System.Drawing.Point(345, 409);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(90, 50);
             this.btnEliminar.TabIndex = 5;
@@ -327,28 +345,22 @@
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // txtNombreProv
+            // btnBusquedaProv
             // 
-            this.txtNombreProv.Location = new System.Drawing.Point(99, 301);
-            this.txtNombreProv.Name = "txtNombreProv";
-            this.txtNombreProv.ReadOnly = true;
-            this.txtNombreProv.Size = new System.Drawing.Size(334, 22);
-            this.txtNombreProv.TabIndex = 21;
-            // 
-            // txtValor
-            // 
-            this.txtValor.Location = new System.Drawing.Point(309, 187);
-            this.txtValor.Name = "txtValor";
-            this.txtValor.ReadOnly = true;
-            this.txtValor.Size = new System.Drawing.Size(78, 22);
-            this.txtValor.TabIndex = 22;
+            this.btnBusquedaProv.Location = new System.Drawing.Point(483, 271);
+            this.btnBusquedaProv.Name = "btnBusquedaProv";
+            this.btnBusquedaProv.Size = new System.Drawing.Size(30, 23);
+            this.btnBusquedaProv.TabIndex = 23;
+            this.btnBusquedaProv.Text = "...";
+            this.btnBusquedaProv.UseVisualStyleBackColor = true;
+            this.btnBusquedaProv.Click += new System.EventHandler(this.btnBusquedaProv_Click);
             // 
             // frmProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(521, 468);
+            this.ClientSize = new System.Drawing.Size(541, 468);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
@@ -399,5 +411,6 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.TextBox txtNombreProv;
         private System.Windows.Forms.TextBox txtValor;
+        private System.Windows.Forms.Button btnBusquedaProv;
     }
 }

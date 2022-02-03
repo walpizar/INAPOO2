@@ -86,6 +86,11 @@ namespace CapaDatos
             catch (Exception ex)
             {
 
+
+
+
+
+
                 throw ex;
             }
 
@@ -101,7 +106,6 @@ namespace CapaDatos
                 {
                     return context.tbProductos.Where(x => x.codigo.Trim() == _codigo.Trim()).SingleOrDefault();
                 }
-
 
             }
             catch (Exception ex)

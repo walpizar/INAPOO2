@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion
 {
-    partial class frmConsultaProductos
+    partial class frmConsultaProveedores
     {
         /// <summary>
         /// Required designer variable.
@@ -28,20 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmConsultaProductos));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmConsultaProveedores));
             this.pnlTitulo = new System.Windows.Forms.Panel();
             this.pnlEquinaDerecha = new System.Windows.Forms.Panel();
             this.pbxCerrar = new System.Windows.Forms.PictureBox();
             this.lblTitulo = new System.Windows.Forms.Label();
+            this.lblBusquesa = new System.Windows.Forms.Label();
+            this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.lstvLista = new System.Windows.Forms.ListView();
             this.colId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ColCodigo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colNombre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colPrecio = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colPrecioVenta = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnNuevo = new System.Windows.Forms.Button();
-            this.txtBusqueda = new System.Windows.Forms.TextBox();
-            this.lblBusquesa = new System.Windows.Forms.Label();
+            this.colApellido1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colApellido2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnlTitulo.SuspendLayout();
             this.pnlEquinaDerecha.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxCerrar)).BeginInit();
@@ -55,14 +53,14 @@
             this.pnlTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTitulo.Location = new System.Drawing.Point(0, 0);
             this.pnlTitulo.Name = "pnlTitulo";
-            this.pnlTitulo.Size = new System.Drawing.Size(1191, 50);
-            this.pnlTitulo.TabIndex = 0;
+            this.pnlTitulo.Size = new System.Drawing.Size(748, 50);
+            this.pnlTitulo.TabIndex = 1;
             // 
             // pnlEquinaDerecha
             // 
             this.pnlEquinaDerecha.Controls.Add(this.pbxCerrar);
             this.pnlEquinaDerecha.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlEquinaDerecha.Location = new System.Drawing.Point(992, 0);
+            this.pnlEquinaDerecha.Location = new System.Drawing.Point(549, 0);
             this.pnlEquinaDerecha.Name = "pnlEquinaDerecha";
             this.pnlEquinaDerecha.Size = new System.Drawing.Size(199, 50);
             this.pnlEquinaDerecha.TabIndex = 2;
@@ -88,25 +86,42 @@
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "label1";
             // 
+            // lblBusquesa
+            // 
+            this.lblBusquesa.AutoSize = true;
+            this.lblBusquesa.Location = new System.Drawing.Point(7, 76);
+            this.lblBusquesa.Name = "lblBusquesa";
+            this.lblBusquesa.Size = new System.Drawing.Size(58, 13);
+            this.lblBusquesa.TabIndex = 6;
+            this.lblBusquesa.Text = "Búsqueda:";
+            // 
+            // txtBusqueda
+            // 
+            this.txtBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBusqueda.Location = new System.Drawing.Point(68, 68);
+            this.txtBusqueda.Name = "txtBusqueda";
+            this.txtBusqueda.Size = new System.Drawing.Size(536, 26);
+            this.txtBusqueda.TabIndex = 5;
+            this.txtBusqueda.TextChanged += new System.EventHandler(this.txtBusqueda_TextChanged);
+            // 
             // lstvLista
             // 
             this.lstvLista.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colId,
-            this.ColCodigo,
             this.colNombre,
-            this.colPrecio,
-            this.colPrecioVenta});
+            this.colApellido1,
+            this.colApellido2});
             this.lstvLista.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstvLista.FullRowSelect = true;
             this.lstvLista.GridLines = true;
             this.lstvLista.HideSelection = false;
-            this.lstvLista.Location = new System.Drawing.Point(12, 122);
+            this.lstvLista.Location = new System.Drawing.Point(12, 111);
             this.lstvLista.Name = "lstvLista";
-            this.lstvLista.Size = new System.Drawing.Size(1167, 584);
-            this.lstvLista.TabIndex = 1;
+            this.lstvLista.Size = new System.Drawing.Size(722, 383);
+            this.lstvLista.TabIndex = 7;
             this.lstvLista.UseCompatibleStateImageBehavior = false;
             this.lstvLista.View = System.Windows.Forms.View.Details;
-            this.lstvLista.SelectedIndexChanged += new System.EventHandler(this.lstvLista_SelectedIndexChanged);
+          
             this.lstvLista.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lstvLista_MouseDoubleClick);
             // 
             // colId
@@ -114,73 +129,36 @@
             this.colId.Text = "ID";
             this.colId.Width = 100;
             // 
-            // ColCodigo
-            // 
-            this.ColCodigo.Text = "Código";
-            this.ColCodigo.Width = 100;
-            // 
             // colNombre
             // 
             this.colNombre.Text = "Nombre";
-            this.colNombre.Width = 250;
+            this.colNombre.Width = 150;
             // 
-            // colPrecio
+            // colApellido1
             // 
-            this.colPrecio.Text = "Precio Costo";
-            this.colPrecio.Width = 100;
+            this.colApellido1.Text = "Primer Apellido";
+            this.colApellido1.Width = 150;
             // 
-            // colPrecioVenta
+            // colApellido2
             // 
-            this.colPrecioVenta.Text = "Precio Venta";
-            this.colPrecioVenta.Width = 100;
+            this.colApellido2.Text = "Segundo Apellido";
+            this.colApellido2.Width = 150;
             // 
-            // btnNuevo
-            // 
-            this.btnNuevo.BackColor = System.Drawing.Color.SkyBlue;
-            this.btnNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevo.ForeColor = System.Drawing.Color.Navy;
-            this.btnNuevo.Location = new System.Drawing.Point(1042, 64);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(137, 52);
-            this.btnNuevo.TabIndex = 2;
-            this.btnNuevo.Text = "Nuevo";
-            this.btnNuevo.UseVisualStyleBackColor = false;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
-            // 
-            // txtBusqueda
-            // 
-            this.txtBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBusqueda.Location = new System.Drawing.Point(73, 78);
-            this.txtBusqueda.Name = "txtBusqueda";
-            this.txtBusqueda.Size = new System.Drawing.Size(536, 26);
-            this.txtBusqueda.TabIndex = 3;
-            this.txtBusqueda.TextChanged += new System.EventHandler(this.txtBusqueda_TextChanged);
-            // 
-            // lblBusquesa
-            // 
-            this.lblBusquesa.AutoSize = true;
-            this.lblBusquesa.Location = new System.Drawing.Point(12, 86);
-            this.lblBusquesa.Name = "lblBusquesa";
-            this.lblBusquesa.Size = new System.Drawing.Size(58, 13);
-            this.lblBusquesa.TabIndex = 4;
-            this.lblBusquesa.Text = "Búsqueda:";
-            // 
-            // frmConsultaProductos
+            // frmConsultaProveedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1191, 722);
+            this.ClientSize = new System.Drawing.Size(748, 550);
+            this.Controls.Add(this.lstvLista);
             this.Controls.Add(this.lblBusquesa);
             this.Controls.Add(this.txtBusqueda);
-            this.Controls.Add(this.btnNuevo);
-            this.Controls.Add(this.lstvLista);
             this.Controls.Add(this.pnlTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmConsultaProductos";
+            this.Name = "frmConsultaProveedores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Mantenimiento: Productos";
-            this.Load += new System.EventHandler(this.frmProductos_Load);
+            this.Text = "frmConsultaProveedores";
+            this.Load += new System.EventHandler(this.frmConsultaProveedores_Load);
             this.pnlTitulo.ResumeLayout(false);
             this.pnlTitulo.PerformLayout();
             this.pnlEquinaDerecha.ResumeLayout(false);
@@ -193,17 +171,15 @@
         #endregion
 
         private System.Windows.Forms.Panel pnlTitulo;
-        private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Panel pnlEquinaDerecha;
         private System.Windows.Forms.PictureBox pbxCerrar;
+        private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.Label lblBusquesa;
+        private System.Windows.Forms.TextBox txtBusqueda;
         private System.Windows.Forms.ListView lstvLista;
         private System.Windows.Forms.ColumnHeader colId;
-        private System.Windows.Forms.ColumnHeader ColCodigo;
         private System.Windows.Forms.ColumnHeader colNombre;
-        private System.Windows.Forms.ColumnHeader colPrecio;
-        private System.Windows.Forms.ColumnHeader colPrecioVenta;
-        private System.Windows.Forms.Button btnNuevo;
-        private System.Windows.Forms.TextBox txtBusqueda;
-        private System.Windows.Forms.Label lblBusquesa;
+        private System.Windows.Forms.ColumnHeader colApellido1;
+        private System.Windows.Forms.ColumnHeader colApellido2;
     }
 }

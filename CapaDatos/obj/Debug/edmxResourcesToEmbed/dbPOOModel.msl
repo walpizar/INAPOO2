@@ -2,69 +2,69 @@
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="dbPOOModelStoreContainer" CdmEntityContainer="Entities">
     <EntitySetMapping Name="tbCategorias">
-      <EntityTypeMapping TypeName="dbPOOModel.tbCategorias">
+      <EntityTypeMapping TypeName="IsTypeOf(dbPOOModel.tbCategorias)">
         <MappingFragment StoreEntitySet="tbCategorias">
-          <ScalarProperty Name="nombre" ColumnName="nombre" />
           <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tbEstudiantes">
-      <EntityTypeMapping TypeName="dbPOOModel.tbEstudiantes">
+      <EntityTypeMapping TypeName="IsTypeOf(dbPOOModel.tbEstudiantes)">
         <MappingFragment StoreEntitySet="tbEstudiantes">
-          <ScalarProperty Name="estado" ColumnName="estado" />
-          <ScalarProperty Name="horario" ColumnName="horario" />
-          <ScalarProperty Name="idPersona" ColumnName="idPersona" />
-          <ScalarProperty Name="grupo" ColumnName="grupo" />
-          <ScalarProperty Name="carnet" ColumnName="carnet" />
           <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="carnet" ColumnName="carnet" />
+          <ScalarProperty Name="grupo" ColumnName="grupo" />
+          <ScalarProperty Name="idPersona" ColumnName="idPersona" />
+          <ScalarProperty Name="horario" ColumnName="horario" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tbImpuestos">
-      <EntityTypeMapping TypeName="dbPOOModel.tbImpuestos">
+      <EntityTypeMapping TypeName="IsTypeOf(dbPOOModel.tbImpuestos)">
         <MappingFragment StoreEntitySet="tbImpuestos">
-          <ScalarProperty Name="valor" ColumnName="valor" />
-          <ScalarProperty Name="nombre" ColumnName="nombre" />
           <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tbPersona">
-      <EntityTypeMapping TypeName="dbPOOModel.tbPersona">
+      <EntityTypeMapping TypeName="IsTypeOf(dbPOOModel.tbPersona)">
         <MappingFragment StoreEntitySet="tbPersona">
-          <ScalarProperty Name="apellido2" ColumnName="apellido2" />
-          <ScalarProperty Name="apellido1" ColumnName="apellido1" />
-          <ScalarProperty Name="nombre" ColumnName="nombre" />
-          <ScalarProperty Name="tipoId" ColumnName="tipoId" />
-          <ScalarProperty Name="identificacion" ColumnName="identificacion" />
           <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="identificacion" ColumnName="identificacion" />
+          <ScalarProperty Name="tipoId" ColumnName="tipoId" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido1" ColumnName="apellido1" />
+          <ScalarProperty Name="apellido2" ColumnName="apellido2" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tbProductos">
-      <EntityTypeMapping TypeName="dbPOOModel.tbProductos">
+      <EntityTypeMapping TypeName="IsTypeOf(dbPOOModel.tbProductos)">
         <MappingFragment StoreEntitySet="tbProductos">
-          <ScalarProperty Name="estado" ColumnName="estado" />
-          <ScalarProperty Name="idProveedor" ColumnName="idProveedor" />
-          <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
-          <ScalarProperty Name="precioVenta" ColumnName="precioVenta" />
-          <ScalarProperty Name="idImpuesto" ColumnName="idImpuesto" />
-          <ScalarProperty Name="utilidad" ColumnName="utilidad" />
-          <ScalarProperty Name="precioCosto" ColumnName="precioCosto" />
-          <ScalarProperty Name="nombre" ColumnName="nombre" />
-          <ScalarProperty Name="codigo" ColumnName="codigo" />
           <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="precioCosto" ColumnName="precioCosto" />
+          <ScalarProperty Name="utilidad" ColumnName="utilidad" />
+          <ScalarProperty Name="idImpuesto" ColumnName="idImpuesto" />
+          <ScalarProperty Name="precioVenta" ColumnName="precioVenta" />
+          <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
+          <ScalarProperty Name="idProveedor" ColumnName="idProveedor" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tbProveedores">
-      <EntityTypeMapping TypeName="dbPOOModel.tbProveedores">
+      <EntityTypeMapping TypeName="IsTypeOf(dbPOOModel.tbProveedores)">
         <MappingFragment StoreEntitySet="tbProveedores">
-          <ScalarProperty Name="apellido2" ColumnName="apellido2" />
-          <ScalarProperty Name="apellido1" ColumnName="apellido1" />
-          <ScalarProperty Name="nombre" ColumnName="nombre" />
           <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido1" ColumnName="apellido1" />
+          <ScalarProperty Name="apellido2" ColumnName="apellido2" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

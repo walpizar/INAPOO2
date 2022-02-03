@@ -4,141 +4,141 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="dbPOOModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="tbCategorias">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="nombre" Type="nchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="tbEstudiantes">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="carnet" Type="nchar" MaxLength="10" />
-          <Property Name="grupo" Type="int" />
-          <Property Name="idPersona" Type="int" />
-          <Property Name="horario" Type="nchar" MaxLength="500" />
-          <Property Name="estado" Type="bit" />
-        </EntityType>
-        <EntityType Name="tbImpuestos">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="nombre" Type="nchar" MaxLength="50" />
-          <Property Name="valor" Type="int" />
-        </EntityType>
-        <EntityType Name="tbPersona">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="identificacion" Type="nchar" MaxLength="30" Nullable="false" />
-          <Property Name="tipoId" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="nombre" Type="nchar" MaxLength="30" Nullable="false" />
-          <Property Name="apellido1" Type="nchar" MaxLength="30" />
-          <Property Name="apellido2" Type="nchar" MaxLength="30" />
-        </EntityType>
-        <EntityType Name="tbProductos">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="codigo" Type="nchar" MaxLength="30" Nullable="false" />
-          <Property Name="nombre" Type="nchar" MaxLength="30" Nullable="false" />
-          <Property Name="precioCosto" Type="decimal" Precision="18" Scale="2" Nullable="false" />
-          <Property Name="utilidad" Type="decimal" Precision="18" Scale="2" Nullable="false" />
-          <Property Name="idImpuesto" Type="int" Nullable="false" />
-          <Property Name="precioVenta" Type="decimal" Precision="18" Scale="2" Nullable="false" />
-          <Property Name="idCategoria" Type="int" Nullable="false" />
-          <Property Name="idProveedor" Type="nchar" MaxLength="50" Nullable="false" />
-          <Property Name="estado" Type="bit" Nullable="false" />
-        </EntityType>
-        <EntityType Name="tbProveedores">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="nchar" MaxLength="50" Nullable="false" />
-          <Property Name="nombre" Type="nchar" MaxLength="50" Nullable="false" />
-          <Property Name="apellido1" Type="nchar" MaxLength="50" Nullable="false" />
-          <Property Name="apellido2" Type="nchar" MaxLength="50" Nullable="false" />
-        </EntityType>
-        <Association Name="FK_tbEstudiantes_tbPersona">
-          <End Role="tbPersona" Type="Self.tbPersona" Multiplicity="0..1" />
-          <End Role="tbEstudiantes" Type="Self.tbEstudiantes" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tbPersona">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="tbEstudiantes">
-              <PropertyRef Name="idPersona" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tbProductos_tbCategorias">
-          <End Role="tbCategorias" Type="Self.tbCategorias" Multiplicity="1" />
-          <End Role="tbProductos" Type="Self.tbProductos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tbCategorias">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="tbProductos">
-              <PropertyRef Name="idCategoria" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tbProductos_tbImpuestos">
-          <End Role="tbImpuestos" Type="Self.tbImpuestos" Multiplicity="1" />
-          <End Role="tbProductos" Type="Self.tbProductos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tbImpuestos">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="tbProductos">
-              <PropertyRef Name="idImpuesto" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tbProductos_tbProveedores">
-          <End Role="tbProveedores" Type="Self.tbProveedores" Multiplicity="1" />
-          <End Role="tbProductos" Type="Self.tbProductos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tbProveedores">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="tbProductos">
-              <PropertyRef Name="idProveedor" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="dbPOOModelStoreContainer">
-          <EntitySet Name="tbCategorias" EntityType="Self.tbCategorias" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="tbEstudiantes" EntityType="Self.tbEstudiantes" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="tbImpuestos" EntityType="Self.tbImpuestos" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="tbPersona" EntityType="Self.tbPersona" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="tbProductos" EntityType="Self.tbProductos" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="tbProveedores" EntityType="Self.tbProveedores" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_tbEstudiantes_tbPersona" Association="Self.FK_tbEstudiantes_tbPersona">
-            <End Role="tbPersona" EntitySet="tbPersona" />
-            <End Role="tbEstudiantes" EntitySet="tbEstudiantes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tbProductos_tbCategorias" Association="Self.FK_tbProductos_tbCategorias">
-            <End Role="tbCategorias" EntitySet="tbCategorias" />
-            <End Role="tbProductos" EntitySet="tbProductos" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tbProductos_tbImpuestos" Association="Self.FK_tbProductos_tbImpuestos">
-            <End Role="tbImpuestos" EntitySet="tbImpuestos" />
-            <End Role="tbProductos" EntitySet="tbProductos" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tbProductos_tbProveedores" Association="Self.FK_tbProductos_tbProveedores">
-            <End Role="tbProveedores" EntitySet="tbProveedores" />
-            <End Role="tbProductos" EntitySet="tbProductos" />
-          </AssociationSet>
-        </EntityContainer>
-      </Schema></edmx:StorageModels>
+    <Schema Namespace="dbPOOModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="dbPOOModelStoreContainer">
+    <EntitySet Name="tbCategorias" EntityType="dbPOOModel.Store.tbCategorias" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbEstudiantes" EntityType="dbPOOModel.Store.tbEstudiantes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbImpuestos" EntityType="dbPOOModel.Store.tbImpuestos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbPersona" EntityType="dbPOOModel.Store.tbPersona" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbProductos" EntityType="dbPOOModel.Store.tbProductos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbProveedores" EntityType="dbPOOModel.Store.tbProveedores" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_tbProductos_tbCategorias" Association="dbPOOModel.Store.FK_tbProductos_tbCategorias">
+      <End Role="tbCategorias" EntitySet="tbCategorias" />
+      <End Role="tbProductos" EntitySet="tbProductos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbEstudiantes_tbPersona" Association="dbPOOModel.Store.FK_tbEstudiantes_tbPersona">
+      <End Role="tbPersona" EntitySet="tbPersona" />
+      <End Role="tbEstudiantes" EntitySet="tbEstudiantes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbProductos_tbImpuestos" Association="dbPOOModel.Store.FK_tbProductos_tbImpuestos">
+      <End Role="tbImpuestos" EntitySet="tbImpuestos" />
+      <End Role="tbProductos" EntitySet="tbProductos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbProductos_tbProveedores" Association="dbPOOModel.Store.FK_tbProductos_tbProveedores">
+      <End Role="tbProveedores" EntitySet="tbProveedores" />
+      <End Role="tbProductos" EntitySet="tbProductos" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="tbCategorias">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbEstudiantes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="carnet" Type="nchar" Nullable="true" MaxLength="10" />
+    <Property Name="grupo" Type="int" Nullable="true" />
+    <Property Name="idPersona" Type="int" Nullable="true" />
+    <Property Name="horario" Type="nchar" Nullable="true" MaxLength="500" />
+    <Property Name="estado" Type="bit" Nullable="true" />
+  </EntityType>
+  <EntityType Name="tbImpuestos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nchar" Nullable="true" MaxLength="50" />
+    <Property Name="valor" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="tbPersona">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="identificacion" Type="nchar" Nullable="false" MaxLength="30" />
+    <Property Name="tipoId" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="nombre" Type="nchar" Nullable="false" MaxLength="30" />
+    <Property Name="apellido1" Type="nchar" Nullable="true" MaxLength="30" />
+    <Property Name="apellido2" Type="nchar" Nullable="true" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="tbProductos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codigo" Type="nchar" Nullable="false" MaxLength="30" />
+    <Property Name="nombre" Type="nchar" Nullable="false" MaxLength="30" />
+    <Property Name="precioCosto" Type="decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="utilidad" Type="decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="idImpuesto" Type="int" Nullable="false" />
+    <Property Name="precioVenta" Type="decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="idCategoria" Type="int" Nullable="false" />
+    <Property Name="idProveedor" Type="nchar" Nullable="false" MaxLength="50" />
+    <Property Name="estado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbProveedores">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="nchar" Nullable="false" MaxLength="50" />
+    <Property Name="nombre" Type="nchar" Nullable="false" MaxLength="50" />
+    <Property Name="apellido1" Type="nchar" Nullable="false" MaxLength="50" />
+    <Property Name="apellido2" Type="nchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_tbProductos_tbCategorias">
+    <End Role="tbCategorias" Type="dbPOOModel.Store.tbCategorias" Multiplicity="1" />
+    <End Role="tbProductos" Type="dbPOOModel.Store.tbProductos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbCategorias">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tbProductos">
+        <PropertyRef Name="idCategoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbEstudiantes_tbPersona">
+    <End Role="tbPersona" Type="dbPOOModel.Store.tbPersona" Multiplicity="0..1" />
+    <End Role="tbEstudiantes" Type="dbPOOModel.Store.tbEstudiantes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbPersona">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tbEstudiantes">
+        <PropertyRef Name="idPersona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbProductos_tbImpuestos">
+    <End Role="tbImpuestos" Type="dbPOOModel.Store.tbImpuestos" Multiplicity="1" />
+    <End Role="tbProductos" Type="dbPOOModel.Store.tbProductos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbImpuestos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tbProductos">
+        <PropertyRef Name="idImpuesto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbProductos_tbProveedores">
+    <End Role="tbProveedores" Type="dbPOOModel.Store.tbProveedores" Multiplicity="1" />
+    <End Role="tbProductos" Type="dbPOOModel.Store.tbProductos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbProveedores">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tbProductos">
+        <PropertyRef Name="idProveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="dbPOOModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -287,78 +287,77 @@
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="dbPOOModelStoreContainer" CdmEntityContainer="Entities">
-          <EntitySetMapping Name="tbCategorias">
-            <EntityTypeMapping TypeName="dbPOOModel.tbCategorias">
-              <MappingFragment StoreEntitySet="tbCategorias">
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tbEstudiantes">
-            <EntityTypeMapping TypeName="dbPOOModel.tbEstudiantes">
-              <MappingFragment StoreEntitySet="tbEstudiantes">
-                <ScalarProperty Name="estado" ColumnName="estado" />
-                <ScalarProperty Name="horario" ColumnName="horario" />
-                <ScalarProperty Name="idPersona" ColumnName="idPersona" />
-                <ScalarProperty Name="grupo" ColumnName="grupo" />
-                <ScalarProperty Name="carnet" ColumnName="carnet" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tbImpuestos">
-            <EntityTypeMapping TypeName="dbPOOModel.tbImpuestos">
-              <MappingFragment StoreEntitySet="tbImpuestos">
-                <ScalarProperty Name="valor" ColumnName="valor" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tbPersona">
-            <EntityTypeMapping TypeName="dbPOOModel.tbPersona">
-              <MappingFragment StoreEntitySet="tbPersona">
-                <ScalarProperty Name="apellido2" ColumnName="apellido2" />
-                <ScalarProperty Name="apellido1" ColumnName="apellido1" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="tipoId" ColumnName="tipoId" />
-                <ScalarProperty Name="identificacion" ColumnName="identificacion" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tbProductos">
-            <EntityTypeMapping TypeName="dbPOOModel.tbProductos">
-              <MappingFragment StoreEntitySet="tbProductos">
-                <ScalarProperty Name="estado" ColumnName="estado" />
-                <ScalarProperty Name="idProveedor" ColumnName="idProveedor" />
-                <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
-                <ScalarProperty Name="precioVenta" ColumnName="precioVenta" />
-                <ScalarProperty Name="idImpuesto" ColumnName="idImpuesto" />
-                <ScalarProperty Name="utilidad" ColumnName="utilidad" />
-                <ScalarProperty Name="precioCosto" ColumnName="precioCosto" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="codigo" ColumnName="codigo" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tbProveedores">
-            <EntityTypeMapping TypeName="dbPOOModel.tbProveedores">
-              <MappingFragment StoreEntitySet="tbProveedores">
-                <ScalarProperty Name="apellido2" ColumnName="apellido2" />
-                <ScalarProperty Name="apellido1" ColumnName="apellido1" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbPOOModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="tbCategorias">
+      <EntityTypeMapping TypeName="IsTypeOf(dbPOOModel.tbCategorias)">
+        <MappingFragment StoreEntitySet="tbCategorias">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbEstudiantes">
+      <EntityTypeMapping TypeName="IsTypeOf(dbPOOModel.tbEstudiantes)">
+        <MappingFragment StoreEntitySet="tbEstudiantes">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="carnet" ColumnName="carnet" />
+          <ScalarProperty Name="grupo" ColumnName="grupo" />
+          <ScalarProperty Name="idPersona" ColumnName="idPersona" />
+          <ScalarProperty Name="horario" ColumnName="horario" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbImpuestos">
+      <EntityTypeMapping TypeName="IsTypeOf(dbPOOModel.tbImpuestos)">
+        <MappingFragment StoreEntitySet="tbImpuestos">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbPersona">
+      <EntityTypeMapping TypeName="IsTypeOf(dbPOOModel.tbPersona)">
+        <MappingFragment StoreEntitySet="tbPersona">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="identificacion" ColumnName="identificacion" />
+          <ScalarProperty Name="tipoId" ColumnName="tipoId" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido1" ColumnName="apellido1" />
+          <ScalarProperty Name="apellido2" ColumnName="apellido2" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbProductos">
+      <EntityTypeMapping TypeName="IsTypeOf(dbPOOModel.tbProductos)">
+        <MappingFragment StoreEntitySet="tbProductos">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="precioCosto" ColumnName="precioCosto" />
+          <ScalarProperty Name="utilidad" ColumnName="utilidad" />
+          <ScalarProperty Name="idImpuesto" ColumnName="idImpuesto" />
+          <ScalarProperty Name="precioVenta" ColumnName="precioVenta" />
+          <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
+          <ScalarProperty Name="idProveedor" ColumnName="idProveedor" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbProveedores">
+      <EntityTypeMapping TypeName="IsTypeOf(dbPOOModel.tbProveedores)">
+        <MappingFragment StoreEntitySet="tbProveedores">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido1" ColumnName="apellido1" />
+          <ScalarProperty Name="apellido2" ColumnName="apellido2" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -372,7 +371,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
       </DesignerInfoPropertySet>
     </Options>

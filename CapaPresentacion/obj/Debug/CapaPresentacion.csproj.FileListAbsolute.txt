@@ -107,3 +107,4 @@ C:\Users\INA\Desktop\P00\INAPOO2\CapaPresentacion\obj\Debug\CapaPresentacion.csp
 C:\Users\INA\Desktop\P00\INAPOO2\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.CopyComplete
 C:\Users\INA\Desktop\P00\INAPOO2\CapaPresentacion\obj\Debug\CapaPresentacion.exe
 C:\Users\INA\Desktop\P00\INAPOO2\CapaPresentacion\obj\Debug\CapaPresentacion.pdb
+C:\Users\walpi\Desktop\POO\POOINA\CapaPresentacion\obj\Debug\CapaPresentacion.frmConsultaProveedores.resources
